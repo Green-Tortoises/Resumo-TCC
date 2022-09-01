@@ -1,0 +1,14 @@
+Eu, Lucas Santiago de Oliveira, juntamente ao meu orientador, Henrique Cota de Freitas, estamos
+desenvolvendo uma forma paralelizada de um algoritmo de IA chamado \emph{``Ant Colony''}. Esse algoritmo tem como
+base a ideia de uma colônia de formigas que se separam em busca de encontrar o melhor caminho
+possível até um certo objetivo. O caminho que uma formiga escolhe se torna mais provável de ser escolhido
+pelas próximas.
+
+O algoritmo de \emph{Ant Colony} é projetado para escolher caminhos aleatórios até encontrar um bom caminho até um destino,
+esse algoritmo não garante necessariamente um resultado ótimo. Além de ser resultados probabilísticos, o que também pode resultar
+em caminhos diferentes para um mesmo destino entre execuções diferentes dos anteriores. O custo computacional ainda não foi
+calculado, mas sabe-se que não é linear - é possível que seja algo próximo de $\mathcal{O}(n^2)$ -.
+
+A ideia inicial proposta é tornar essa IA mais eficiente. Com as diretivas corretas, é possível que haja um ganho considerável de 
+desempenho. O algoritmo possuí muitas regiões com grandes cálculos matriciais que acelerados, tanto quanto operações que
+podem ser otimizadas para plataformas de computação paralela eficiêntes em GPU, como CUDA, por exemplo.
