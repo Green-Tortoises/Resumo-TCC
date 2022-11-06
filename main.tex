@@ -3,11 +3,15 @@
 \usepackage{sbc-template}
 \usepackage{import}
 \usepackage{indentfirst}
+\usepackage{csquotes}
 
 \usepackage{graphicx,url}
 
 \usepackage[brazil]{babel}   
 %\usepackage[latin1]{inputenc}  
+
+\usepackage[backend=biber,sorting=none]{biblatex}
+\addbibresource{references.bib} 
 
      
 \sloppy
@@ -28,7 +32,17 @@
 
 \maketitle
 
-\import{./sections}{abstract.tex}
-\import{./sections}{resumo.tex}
+% Seção 1 da monografia
+\import{./sections/secao1}{abstract.tex}
+\import{./sections/secao1}{resumo.tex}
+
+% Seção 2 da monografia
+\import{./sections/secao2}{revisao_literatura.tex}
+\import{./sections/secao2}{trabalhos_correlatos.tex}
+
+Example citation:
+\cite{AntColonyOptimization}
+
+\printbibliography
 
 \end{document}
