@@ -1,9 +1,10 @@
 \section{Revisão da Literatura}
 
-O livro \cite{BookIA} apresenta todos os conceitos necessários para se iniciar na área de inteligência artificial (IA).
+O livro escrito por \citeauthor{BookIA} \cite{BookIA} apresenta todos os conceitos necessários para se iniciar na área de inteligência artificial (IA).
 Modelos de IA são pensados desde os primórdios da computação. Sempre foi almejado uma forma de se construir um algoritmo
-que se auto-modela dependendo do problema e que consegue se auto-treinar e auto-melhorar precisando apenas de uma entrada
-maior.
+que se auto-modelasse dependendo do problema, para ter a melhor solução possível,
+e que conseguisse aumentar sua própria precisão apenas precisando de uma entrada maior, sem necessidade de modificação
+do código em si.
 
 Como citado por \citeauthor{AntColonyOptimization} \cite{AntColonyOptimization}, algoritmos baseados em colônias de formigas
 e outros insetos, que possuem comportamentos parecidos, começaram a ser pensados ainda nos anos noventa. 
@@ -12,8 +13,13 @@ caminhos para alcançar seus objetivos, inspirou vários pesquisadores a projeta
 de otimização para a área de inteligência artificial.
 
 Programar qualquer inteligência artificial possui o problema de sempre se preocupar com o tamanho da entrada para treinamento.
-Uma IA que sempre precisa de grandes entradas para se ter bons resultados precisa de ter boa performance por elemento presente nessa entrada. 
-Por conta disso modelar esse programa usando de
-computação paralela é fundamental para um bom uso dos recursos da máquina. A diferença de desempenho entre a versão sequêncial
-para a versão paralela é tão significativo que projetar os algoritmos apenas de forma paralela pode fazer considerável sentido
-\cite{SequentialVSParallel}.
+Uma IA que sempre precisa de grandes entradas para se ter bons resultados precisa de ter bom uso dos recursos disponíveis na máquina. 
+Por conta disso, modelar esse programa aproveitando da computação paralela é fundamental para um bom uso desses recursos. 
+A diferença de desempenho entre a versão sequencial para a versão paralela é tão significativo que projetar os algoritmos 
+já pensando em torná-los paralelos pode fazer total diferença \cite{SequentialVSParallel}.
+
+Como apresentado por \citeauthor{ParallelComputingCUDA}, vários problemas computacionais podem ser otimizados em GPUs.
+O uso de CUDA para programação paralela de quantidades massivas de dados se torna extremamente necessária, uma vez que
+placas de vídeo da Nvidia podem chegar a ser até 250 vezes mais rápida do que uma versão paralela em CPU Intel \cite{ParallelComputingCUDA}. 
+Placas de vídeo possuem grande capacidade de calcular grandes quantidades de dados simultaneamente e inteligência artificial 
+é uma aplicação que encaixa perfeitamente nesse propósito.
