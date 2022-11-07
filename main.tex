@@ -1,18 +1,21 @@
-\documentclass[12pt]{article}
+\documentclass{article}
 
 \usepackage{sbc-template}
 \usepackage{import}
 \usepackage{indentfirst}
 \usepackage{csquotes}
 
-\usepackage{graphicx,url}
+\usepackage{url}
+
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
 
 \usepackage[brazil]{babel}   
 %\usepackage[latin1]{inputenc}  
 
 \usepackage[backend=biber,sorting=none]{biblatex}
+%\usepackage[backend=biber]{biblatex}
 \addbibresource{references.bib} 
-
      
 \sloppy
 
@@ -39,9 +42,6 @@
 % Seção 2 da monografia
 \import{./sections/secao2}{revisao_literatura.tex}
 \import{./sections/secao2}{trabalhos_correlatos.tex}
-
-Example citation:
-\cite{AntColonyOptimization}
 
 \printbibliography
 
