@@ -1,0 +1,36 @@
+\subsection{Materiais}
+
+Este trabalho está sendo desenvolvido na linguagem Python e foram escolhidos bibliotecas 
+específicas para o desenvolvimento dessa aplicação.
+A biblioteca CuPy\cite{cupyLib} e Numpy\cite{numpyLib} são as ferramentas mais adequadas
+para essa situação. A primeira é uma biblioteca escrita em Python para suportar GPUs Nvidia
+para grandes cálculos matriciais. A segunda é uma biblioteca que suporta matrizes multidimensionais
+(possuí suporte apenas para a CPU). Ao usar as duas em conjunto é possível desenvolver uma aplicação
+performática usando matrizes multidimensionais em placas de vídeo.
+
+Foram escolhidas, também, três bases de dados públicas.
+Todas as bases de dados que, originalmente continham atributos categóricos, tiveram os
+seus atributos convertidos em atributos numéricos, uma vez que o ACO trabalha
+somente com atributos numéricos.
+
+\begin{center}
+    \begin{tabular}{|c|c|c|}   
+        \hline
+        Base de Dados & Número de Instâncias & Link Para a Base de Dados \\
+        \hline
+        Banana & 5300 & \href{https://www.kaggle.com/datasets/saranchandar/standard-classification-banana-dataset}{Link para o Banana Dataset} \\
+        \hline
+        \emph{Cyber Security} & 1247 & \href{https://www.kaggle.com/datasets/deepcontractor/cyber-security-salaries}{Link para o \emph{Cyber Security}} \\
+        \hline
+        \emph{Iris Species} & 150 & \href{https://www.kaggle.com/datasets/uciml/iris}{Link para o \emph{Iris Species}} \\
+        \hline 
+    \end{tabular}
+\end{center}
+
+Essas bases de dados foram escolhidas com quantidades de instâncias bem diferentes propositalmente, uma vez
+que esse algoritmo possuí um crescimento exponencial no custo de processamento dos dados. Para um teste inicial
+começar com bases pequenas implica em tempo consideravelmente pequeno de processamento. Para cada novo teste
+aumentar o número de instâncias aumenta consideravelmente o custo de processamento e o tempo de execução que 
+podem ser usados para testar a eficiencia da versão paralela do algoritmo.
+
+Todos esses testes estão sendo feitos em um computador com Arch Linux, Kernel \emph{6.0.10-zen2-1-zen}. 
