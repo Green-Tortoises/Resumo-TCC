@@ -1,16 +1,17 @@
 \section{Metodologia}
 
 Para se alcançar os resultados almejados foram selecionados as ferramentas CuPy e Numpy que serão citadas
-na próxima sessão. O algoritmo foi escrito previamente por 
+na próxima sessão. 
 
 \subsection{Materiais}
 
-Foram escolhidos bibliotecas específicas para o desenvolvimento dessa aplicação.
+Este trabalho está sendo desenvolvido na linguagem Python e foram escolhidos bibliotecas 
+específicas para o desenvolvimento dessa aplicação.
 A biblioteca CuPy\cite{cupyLib} e Numpy\cite{numpyLib} são as ferramentas mais adequadas
 para essa situação. A primeira é uma biblioteca escrita em Python para suportar GPUs Nvidia
 para grandes cálculos matriciais. A segunda é uma biblioteca que suporta matrizes multidimensionais
 (possuí suporte apenas para a CPU). Ao usar as duas em conjunto é possível desenvolver uma aplicação
-performática usando matrizes em placas de vídeo.
+performática usando matrizes multidimensionais em placas de vídeo.
 
 \subsection{Cronograma}
 
@@ -41,7 +42,11 @@ cronograma a seguir:
     \end{tabular}
 \end{center}
 
+
+
 \subsection{Resultados Esperados}
 
 É esperado que ao fim desse trabalho seja possível identitificar uma melhora de desempenho
-no algoritmo ACO.
+no algoritmo ACO. Considerando que placas de vídeo são otimizadas para equações matriciais e
+é possível trabalhar essas equações de forma eficiente dentro de GPUs, pode-se ter ganhos consideráveis
+de desempenho. 
