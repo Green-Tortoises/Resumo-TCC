@@ -1,7 +1,10 @@
-Neste artigo será usado \emph{CUDA} para otimizar o algoritmo \emph{Ant Colony Optimization} usando a biblioteca
-\emph{CuPy} \cite{Cupy} que permite o uso de cálculos de matrizes em GPUs Nvidia. Essa biblioteca
-tem como objetivo acelerar o processamento de arranjos multidimensionais, com isso torna-se perfeita
-para todos os algoritmos já citados neste artigo.
+\subsection{Conclusão}
+
+Todos os trabalhos anteriomente citados estão presos dentro do contexto de usar seleção 
+de instâncias com \emph{Ant Colony Optimizations} de forma sequencial tornando-o o mais eficiente 
+possível para ser executado apenas por uma \emph{thread}. Neste trabalho será modificado alguns dos 
+parâmetros da aplicação para permití-la executar em várias \emph{threads} da GPU. Isso deve tornar 
+o algoritmo mais eficiente para todos os usos já citados pelos outros autores.
 
 Será usado o \emph{K-Means} como unidade comparativa deste trabalho para mensurar 
 o ganho que a \emph{Ant Colony Optimization} é capaz de obter, tanto quanto sua acertividade
@@ -9,4 +12,4 @@ em encontrar o melhor caminho. Aproveitando de todas as otimizações que já fo
 e todos os trabalhos que foram feitos para tornar o Python a ferramenta mais procurada
 para pesquisadores de inteligências artificiais. Com isso, esse trabalho tem como objetivo
 avançar as pesquisas previamente feitas para testar a eficácia de uma versão otimizada em 
-GPU do algoritmo ACO.
+GPU desse algoritmo ACO.
