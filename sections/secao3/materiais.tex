@@ -1,9 +1,10 @@
 \subsection{Materiais} \label{Materiais}
 
-Este trabalho está sendo desenvolvido na linguagem Python e foram escolhidos bibliotecas 
+Este trabalho está sendo desenvolvido na linguagem Python e foram escolhidos bibliotecas
 específicas para o desenvolvimento dessa aplicação.
 A biblioteca CuPy\cite{cupyLib} e Numpy\cite{numpyLib} são as ferramentas mais adequadas
 para essa situação. A primeira é uma biblioteca escrita em Python para suportar GPUs Nvidia
+\footnote[1]{Existe uma versão dessa mesma biblioteca para \emph{ROCm} para suportar tanto Nvidia quanto AMD. Essa que será usada nesse trabalho.}
 para grandes cálculos matriciais. A segunda é uma biblioteca que suporta matrizes multidimensionais
 (possuí suporte apenas para a CPU). Ao usar as duas em conjunto é possível desenvolver uma aplicação
 performática usando matrizes multidimensionais em placas de vídeo.
@@ -14,7 +15,7 @@ seus atributos convertidos em atributos numéricos, uma vez que o ACO trabalha
 somente com atributos numéricos.
 
 \begin{center}
-    \begin{tabular}{|c|c|c|}   
+    \begin{tabular}{|c|c|c|}
         \hline
         Base de Dados & Número de Instâncias & Link Para a Base de Dados \\
         \hline
@@ -23,20 +24,20 @@ somente com atributos numéricos.
         \emph{Cyber Security} & 1247 & \href{https://www.kaggle.com/datasets/deepcontractor/cyber-security-salaries}{Link para o \emph{Cyber Security}} \\
         \hline
         \emph{Iris Species} & 150 & \href{https://www.kaggle.com/datasets/uciml/iris}{Link para o \emph{Iris Species}} \\
-        \hline 
+        \hline
     \end{tabular}
 \end{center}
 
 Essas bases de dados foram escolhidas com quantidades de instâncias bem diferentes propositalmente, uma vez
 que esse algoritmo possuí um crescimento exponencial no custo de processamento dos dados. Para um teste inicial
 começar com bases pequenas implica em tempo consideravelmente pequeno de processamento. Para cada novo teste
-aumentar o número de instâncias aumenta consideravelmente o custo de processamento e o tempo de execução que 
-podem ser usados para testar a eficiencia da versão paralela do algoritmo.
+aumentar o número de instâncias aumenta consideravelmente o custo de processamento e o tempo de execução que
+podem ser usados para testar a eficiência da versão paralela do algoritmo.
 
 Todos esses testes estão sendo feitos em um computador com Arch Linux, Kernel \emph{6.0.10-zen2-1-zen}.
-A máquina possuí um \emph{Ryzen 5 3600xt} e uma GPU \emph{GeForce GTX 1060 3GB}, com 16GB de memória RAM.
+A máquina possuí um \emph{Ryzen 5 3600xt} e uma GPU \emph{AMD Radeon 7600} de 8GB de \emph{VRAM}, com 16GB de memória RAM.
 
 Foi escolhido essas ferramentas pensando na simplicidade, uma vez que Python é uma língua de programação
 bem simples. As bases de dados foram selecionadas por conterem um número bem diferente de instâncias, assim
-como já havia sido citado anteriormente. Para o \emph{hardware} é necessário ter qualquer placa de vídeo da 
-Nvidia, pois CUDA funciona apenas nesses modelos.
+como já havia sido citado anteriormente. Para o \emph{hardware} é necessário ter qualquer placa de vídeo
+que tenha suporte \emph{ROCm} \footnote[2]{Veja suporte no link \href{https://rocm.docs.amd.com/en/latest/release/gpu_os_support.html}{GPU Support and OS Compatibility}.}.

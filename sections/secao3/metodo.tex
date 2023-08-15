@@ -3,16 +3,16 @@
 Usando das ferramentas citadas, será necessário construir um algoritmo modificado
 do ACO para ter-se a capacidade de executá-lo de forma paralela em GPUs.
 O primeiro modelo de algoritmo pensado foi calcular o movimento das formigas em \emph{batches}.
-Com isso, pode-se tratar um conjunto grande de formigas simultaneamente de uma só vez. 
-Quando essas formigas terminarem de procurar o melhor caminho, elas voltam, processa-se todos os 
-dados e envia mais formigas para calcular o novo melhor caminho e assim por diante, até que toda 
+Com isso, pode-se tratar um conjunto grande de formigas simultaneamente de uma só vez.
+Quando essas formigas terminarem de procurar o melhor caminho, elas voltam, processa-se todos os
+dados e envia mais formigas para calcular o novo melhor caminho e assim por diante, até que toda
 a base de dados seja processada.
 
-Será necessário contabilizar o tempo que cada base de dados está tomando para processar todos os 
-caminhos. Com isso, será produzido vários gráficos contendo o número de instâncias que estão sendo 
+Será necessário contabilizar o tempo que cada base de dados está tomando para processar todos os
+caminhos. Com isso, será produzido vários gráficos contendo o número de instâncias que estão sendo
 processadas pelo tempo de execução. Vendo esses gráficos será possível descobrir onde deve-se otimizar
 as funções criadas para produzir versões paralelas melhores.
 
-Por fim, terá as métricas mais otimizadas que foram possíveis de conseguir. Os ganhos serão todos 
-medidos e apresentados nesse documento. O algoritmo final obtido, também será apresentado para que 
+Por fim, terá as métricas mais otimizadas que foram possíveis de conseguir. Os ganhos serão todos
+medidos e apresentados nesse documento. O algoritmo final obtido, também será apresentado para que
 possa ser replicado e testado.

@@ -1,7 +1,7 @@
 \section{Introdução}
 Algoritmos para seleção de melhores instâncias são bem conhecidos na área da computação como \emph{K-means} ou \emph{Support
 Vector Machine}. Eles possuem grande importância quando é necessário escolher elementos parecidos dentro de um grupo de elementos
-maior. Neste artigo, será abordado a paralelização do algoritmo \emph{``Instance Selection with Ant Colony Optimization''} (ACO), 
+maior. Neste artigo, será abordado a paralelização do algoritmo \emph{``Instance Selection with Ant Colony Optimization''} (ACO),
 um algoritmo mais eficiente que ambos para seleção de instâncias.
 Esse algoritmo tem como base a ideia de uma colônia de formigas que se separam em busca de encontrar o melhor caminho
 possível até um certo objetivo. O caminho escolhido por uma primeira formiga torna-se mais provável de ser escolhido
@@ -14,26 +14,26 @@ significativamente maior de processamento que a quantidade anterior.
 
 \subsection{Problema}
 Um algoritmo com bons resultados e baixo custo computacional é de suma importância. Maior eficiência e menor uso de recursos
-torna um algoritmo uma boa escolha para um maior número de pessoas. Seria, então, possível tornar um algoritmo de seleção de 
+torna um algoritmo uma boa escolha para um maior número de pessoas. Seria, então, possível tornar um algoritmo de seleção de
 instâncias em paralelo para ter um melhor uso dos recursos computacionais disponíveis?
 
 
 \subsection{Objetivos}
 
-A ideia inicial proposta é tornar essa IA mais eficiente. Com as diretivas corretas, é possível que haja um ganho considerável de 
+A ideia inicial proposta é tornar essa IA mais eficiente. Com as diretivas corretas, é possível que haja um ganho considerável de
 desempenho. O algoritmo possui muitas regiões com grandes cálculos matriciais que podem ser acelerados, tanto quanto operações que
 podem ser otimizadas para plataformas de computação eficientes em GPU, como por exemplo, {CuPy}.
 
 \subsubsection{Objetivo Principal}
 
-Portanto, o objetivo principal desta monografia é desenvolver e avaliar a forma paralela do algoritmo \emph{``Instance Selection with Ant Colony 
+Portanto, o objetivo principal desta monografia é desenvolver e avaliar a forma paralela do algoritmo \emph{``Instance Selection with Ant Colony
 Optimization''} usando {CuPy}. Esse algoritmo possuí grandes regiões paralelizáveis, por conta do excesso de
 contas usando matrizes e, por conta disso, o uso de GPUs seria uma escolha adequada.
 
 
 \subsubsection{Objetivos Específicos}
 Alguns objetivos precisam ser previamente resolvidos para que o objetivo principal seja atingido. Um primeiro é modificar
-o algoritmo original para comportar paralelização em GPU, como mover os \emph{dataframes} para a {VRAM} assim que 
+o algoritmo original para comportar paralelização em GPU, como mover os \emph{dataframes} para a {VRAM} assim que
 iniciar o algoritmo e manter sempre que possível, sincronizado a cópia dos dados entre o \emph{host} e o \emph{device}.
 Outro ponto, é verificar a compatibilidade das bibliotecas usadas para a aplicação funcionar com o uso de {CUDA}.
 Por fim, adicionar as diretivas de paralelismo no código nas funções que suportam serem operadas em GPU.
@@ -42,11 +42,11 @@ Por fim, adicionar as diretivas de paralelismo no código nas funções que supo
 
 É esperado que após feita a versão paralela do algoritmo tenha-se algum ganho de desempenho se comparada à versão
 sequêncial. Com isso, será possível executar mais rapidamente os mesmos \emph{datasets} e permitirá que pessoas que
-possuam GPU da \emph{Nvidia} possam se beneficiar de um melhor uso de seus recursos computacionais. Um artigo
+possuam GPU da AMD e da Nvidia possam se beneficiar de um melhor uso de seus recursos computacionais. Um artigo
 já está sendo produzido pela PUC Minas que irá ser diretamente beneficiado por uma versão paralela desse algoritmo.
 
 \subsection{Organização da Monografia}
 
-Esta monografia está organizada da seguinte forma: seção 2 apresenta uma revisão da literatura, 
+Esta monografia está organizada da seguinte forma: seção 2 apresenta uma revisão da literatura,
 seção 3 apresenta os trabalhos correlatos, seção 4 revisão do funcionamento do algoritmo de
 \emph{``ANT-IS''}, seção 5 metodologia usada e por fim, uma seção de conclusões.
