@@ -4,7 +4,7 @@ Este trabalho está sendo desenvolvido na linguagem Python e foram escolhidos bi
 específicas para o desenvolvimento dessa aplicação.
 A biblioteca CuPy\cite{cupyLib} e Numpy\cite{numpyLib} são as ferramentas mais adequadas
 para essa situação. A primeira é uma biblioteca escrita em Python para suportar GPUs Nvidia
-\footnote[1]{Existe uma versão dessa mesma biblioteca para \emph{ROCm} para suportar tanto Nvidia quanto AMD. Essa que será usada nesse trabalho.}
+\footnote[1]{Existe uma versão dessa mesma biblioteca para ROCm para suportar tanto Nvidia quanto AMD. Essa que será usada nesse trabalho.}
 para grandes cálculos matriciais. A segunda é uma biblioteca que suporta matrizes multidimensionais
 (possuí suporte apenas para a CPU). Ao usar as duas em conjunto é possível desenvolver uma aplicação
 performática usando matrizes multidimensionais em placas de vídeo.
@@ -40,4 +40,4 @@ A máquina possuí um \emph{Ryzen 5 3600xt} e uma GPU \emph{AMD Radeon 7600} de 
 Foi escolhido essas ferramentas pensando na simplicidade, uma vez que Python é uma língua de programação
 bem simples. As bases de dados foram selecionadas por conterem um número bem diferente de instâncias, assim
 como já havia sido citado anteriormente. Para o \emph{hardware} é necessário ter qualquer placa de vídeo
-que tenha suporte \emph{ROCm} \footnote[2]{Veja suporte no link \href{https://rocm.docs.amd.com/en/latest/release/gpu_os_support.html}{GPU Support and OS Compatibility}.}.
+que tenha suporte ROCm \footnote[2]{Veja suporte no link \href{https://rocm.docs.amd.com/en/latest/release/gpu_os_support.html}{GPU Support and OS Compatibility}.}.
