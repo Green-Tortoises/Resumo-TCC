@@ -1,43 +1,25 @@
-\subsection{Materiais} \label{Materiais}
+\subsection{Materials} \label{Materials}
 
-Este trabalho está sendo desenvolvido na linguagem Python e foram escolhidos bibliotecas
-específicas para o desenvolvimento dessa aplicação.
-A biblioteca CuPy\cite{cupyLib} e Numpy\cite{numpyLib} são as ferramentas mais adequadas
-para essa situação. A primeira é uma biblioteca escrita em Python para suportar GPUs Nvidia
-\footnote[1]{Existe uma versão dessa mesma biblioteca para ROCm para suportar tanto Nvidia quanto AMD. Essa que será usada nesse trabalho.}
-para grandes cálculos matriciais. A segunda é uma biblioteca que suporta matrizes multidimensionais
-(possuí suporte apenas para a CPU). Ao usar as duas em conjunto é possível desenvolver uma aplicação
-performática usando matrizes multidimensionais em placas de vídeo.
+This work is being developed in the Python language, and specific libraries have been chosen for the development of this application. The CuPy library\cite{cupyLib} and Numpy\cite{numpyLib} are the most suitable tools for this situation. The first is a Python library designed to support Nvidia GPUs\footnote[1]{There is a version of this library for ROCm to support both Nvidia and AMD GPUs, which will be used in this work.} for large matrix calculations. The second is a library that supports multidimensional arrays (but only on the CPU). By using both together, it is possible to develop a performant application using multidimensional arrays on GPUs.
 
-Foram escolhidas, também, três bases de dados públicas.
-Todas as bases de dados que, originalmente continham atributos categóricos, tiveram os
-seus atributos convertidos em atributos numéricos, uma vez que o ACO trabalha
-somente com atributos numéricos.
+Additionally, three public databases have been chosen. All databases that originally contained categorical attributes had their attributes converted into numerical attributes since ACO works only with numerical attributes.
 
 \begin{center}
     \begin{tabular}{|c|c|c|}
         \hline
-        Base de Dados & Número de Instâncias & Link Para a Base de Dados \\
+        Database & Number of Instances & Link to Database \\
         \hline
-        Banana & 5300 & \href{https://www.kaggle.com/datasets/saranchandar/standard-classification-banana-dataset}{Link para o Banana Dataset} \\
+        Banana & 5300 & \href{https://www.kaggle.com/datasets/saranchandar/standard-classification-banana-dataset}{Link to Banana Dataset} \\
         \hline
-        \emph{Cyber Security} & 1247 & \href{https://www.kaggle.com/datasets/deepcontractor/cyber-security-salaries}{Link para o \emph{Cyber Security}} \\
+        \emph{Cyber Security} & 1247 & \href{https://www.kaggle.com/datasets/deepcontractor/cyber-security-salaries}{Link to \emph{Cyber Security}} \\
         \hline
-        \emph{Iris Species} & 150 & \href{https://www.kaggle.com/datasets/uciml/iris}{Link para o \emph{Iris Species}} \\
+        \emph{Iris Species} & 150 & \href{https://www.kaggle.com/datasets/uciml/iris}{Link to \emph{Iris Species}} \\
         \hline
     \end{tabular}
 \end{center}
 
-Essas bases de dados foram escolhidas com quantidades de instâncias bem diferentes propositalmente, uma vez
-que esse algoritmo possuí um crescimento exponencial no custo de processamento dos dados. Para um teste inicial
-começar com bases pequenas implica em tempo consideravelmente pequeno de processamento. Para cada novo teste
-aumentar o número de instâncias aumenta consideravelmente o custo de processamento e o tempo de execução que
-podem ser usados para testar a eficiência da versão paralela do algoritmo.
+These databases were deliberately chosen with significantly different numbers of instances since this algorithm has exponential growth in data processing cost. Starting with small databases for initial testing implies considerably shorter processing times. For each new test, increasing the number of instances significantly raises the processing cost and execution time, which can be used to test the efficiency of the parallel version of the algorithm.
 
-Todos esses testes estão sendo feitos em um computador com Arch Linux, Kernel \emph{6.0.10-zen2-1-zen}.
-A máquina possuí um \emph{Ryzen 5 3600xt} e uma GPU \emph{AMD Radeon 7600} de 8GB de \emph{VRAM}, com 16GB de memória RAM.
+All these tests are being conducted on a computer running Arch Linux, Kernel 6.0.10-zen2-1-zen. The machine has a Ryzen 5 3600xt CPU and an AMD Radeon 7600 GPU with 8GB of VRAM, along with 16GB of RAM.
 
-Foi escolhido essas ferramentas pensando na simplicidade, uma vez que Python é uma língua de programação
-bem simples. As bases de dados foram selecionadas por conterem um número bem diferente de instâncias, assim
-como já havia sido citado anteriormente. Para o \emph{hardware} é necessário ter qualquer placa de vídeo
-que tenha suporte ROCm \footnote[2]{Veja suporte no link \href{https://rocm.docs.amd.com/en/latest/release/gpu_os_support.html}{GPU Support and OS Compatibility}.}.
+These tools were chosen for their simplicity, considering that Python is a straightforward programming language. The databases were selected due to their varying numbers of instances, as mentioned earlier. Regarding hardware, it is necessary to have any GPU that supports ROCm\footnote[2]{Check the support at \href{https://rocm.docs.amd.com/en/latest/release/gpu_os_support.html}{GPU Support and OS Compatibility}.}.

@@ -1,18 +1,7 @@
-\subsection{Método} \label{Metodo}
+\subsection{Method} \label{Method}
 
-Usando das ferramentas citadas, será necessário construir um algoritmo modificado
-do ACO para ter-se a capacidade de executá-lo de forma paralela em GPUs.
-O primeiro modelo de algoritmo pensado foi calcular o movimento das formigas em \emph{batches}.
-Com isso, pode-se tratar um conjunto grande de formigas simultaneamente de uma só vez.
-Quando essas formigas terminarem de procurar o melhor caminho, elas voltam, processa-se todos os
-dados e envia mais formigas para calcular o novo melhor caminho e assim por diante, até que toda
-a base de dados seja processada.
+Using the mentioned tools, it will be necessary to construct a modified ACO algorithm to enable its parallel execution on GPUs. The initial algorithm model considered is to calculate ant movements in batches. This allows for the simultaneous treatment of a large set of ants at once. When these ants finish searching for the best path, they return, and all the data is processed. Then, more ants are sent to calculate the new best path, and this process continues until the entire database is processed.
 
-Será necessário contabilizar o tempo que cada base de dados está tomando para processar todos os
-caminhos. Com isso, será produzido vários gráficos contendo o número de instâncias que estão sendo
-processadas pelo tempo de execução. Vendo esses gráficos será possível descobrir onde deve-se otimizar
-as funções criadas para produzir versões paralelas melhores.
+It will be necessary to measure the time it takes for each database to process all the paths. With this data, various graphs will be produced containing the number of instances being processed over time. By analyzing these graphs, it will be possible to identify areas where functions can be optimized to produce better parallel versions.
 
-Por fim, terá as métricas mais otimizadas que foram possíveis de conseguir. Os ganhos serão todos
-medidos e apresentados nesse documento. O algoritmo final obtido, também será apresentado para que
-possa ser replicado e testado.
+Finally, the most optimized metrics that could be achieved will be presented. All gains will be measured and documented in this document. The final algorithm obtained will also be presented so that it can be replicated and tested.

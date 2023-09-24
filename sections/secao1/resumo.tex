@@ -1,52 +1,31 @@
-\section{Introdução}
-Algoritmos para seleção de melhores instâncias são bem conhecidos na área da computação como \emph{K-means} ou \emph{Support
-Vector Machine}. Eles possuem grande importância quando é necessário escolher elementos parecidos dentro de um grupo de elementos
-maior. Neste artigo, será abordado a paralelização do algoritmo \emph{``Instance Selection with Ant Colony Optimization''} (ACO),
-um algoritmo mais eficiente que ambos para seleção de instâncias.
-Esse algoritmo tem como base a ideia de uma colônia de formigas que se separam em busca de encontrar o melhor caminho
-possível até um certo objetivo. O caminho escolhido por uma primeira formiga torna-se mais provável de ser escolhido
-pelas subsequentes.
+\section{Introduction}
 
-Esse algoritmo é projetado para escolher caminhos aleatórios até encontrar um destino, no final o melhor caminho dentro de todos deslocados pelas formigas
-será o retornado. Não há garantias de que o resultado ótimo será encontrado. Cada execução do algoritmo gera retornos diferentes, por conta
-de sua aleatoriedade. Seu custo computacional é superior ao linear. Com isso, para cada nova formiga o algoritmo toma uma quantidade
-significativamente maior de processamento que a quantidade anterior.
+Algorithms for selecting the best instances are well known in the field of computing, such as \emph{k-means} or \emph{Support Vector Machine}. They are of great importance when it is necessary to choose similar elements within a larger group of elements. In this paper, we will address the parallelization of the algorithm \emph{``Instance Selection with Ant Colony Optimization''} (ACO), a more efficient algorithm than both for instance selection.
 
-\subsection{Problema}
-Um algoritmo com bons resultados e baixo custo computacional é de suma importância. Maior eficiência e menor uso de recursos
-torna um algoritmo uma boa escolha para um maior número de pessoas. Seria, então, possível tornar um algoritmo de seleção de
-instâncias em paralelo para ter um melhor uso dos recursos computacionais disponíveis?
+This algorithm is based on the idea of an ant colony that separates in search of the best possible path to a certain goal. The path chosen by a first ant becomes more likely to be chosen by subsequent ones.
 
+This algorithm is designed to choose random paths until it finds a destination, in the end the best path out of all displaced by the ants will be returned. There is no guarantee that the optimal result will be found. Each execution of the algorithm generates different returns, due to its randomness. Its computational cost is higher than linear. As a result, for each new ant, the algorithm takes a significantly larger amount of processing than the previous amount.
 
-\subsection{Objetivos}
+\section{Problem}
 
-A ideia inicial proposta é tornar essa IA mais eficiente. Com as diretivas corretas, é possível que haja um ganho considerável de
-desempenho. O algoritmo possui muitas regiões com grandes cálculos matriciais que podem ser acelerados, tanto quanto operações que
-podem ser otimizadas para plataformas de computação eficientes em GPU, como por exemplo, {ROCm}.
+An algorithm with good results and low computational cost is of paramount importance. Greater efficiency and lower resource use makes an algorithm a good choice for a larger number of people. So, would it be possible to make an instance selection algorithm parallel to make better use of the available computational resources?
 
-\subsubsection{Objetivo Principal}
+\subsection{Objectives}
 
-Portanto, o objetivo principal desta monografia é desenvolver e avaliar a forma paralela do algoritmo \emph{``Instance Selection with Ant Colony
-Optimization''} usando {ROCm}. Esse algoritmo possuí grandes regiões paralelizaveis, por conta do excesso de
-contas usando matrizes e, por conta disso, o uso de GPUs seria uma escolha adequada.
+The initial idea proposed is to make this AI more efficient. With the correct directives, it is possible that there will be a considerable gain in performance. The algorithm has many regions with large matrix calculations that can be accelerated, as well as operations that can be optimized for GPU-efficient computing platforms, such as ROCm.
 
+\subsection{Main Objective}
 
-\subsubsection{Objetivos Específicos}
-Alguns objetivos precisam ser previamente resolvidos para que o objetivo principal seja atingido. Um primeiro é modificar
-o algoritmo original para comportar paralelização em GPU, como mover os \emph{dataframes} para a {VRAM} assim que
-iniciar o algoritmo e manter sempre que possível, sincronizado a cópia dos dados entre o \emph{host} e o \emph{device}.
-Outro ponto, é verificar a compatibilidade das bibliotecas usadas para a aplicação funcionar com o uso de {CUDA}.
-Por fim, adicionar as diretivas de paralelismo no código nas funções que suportam serem operadas em GPU.
+Therefore, the main objective of this monograph is to develop and evaluate the parallel form of the algorithm "Instance Selection with Ant Colony Optimization" using ROCm. This algorithm has large parallelizable regions, due to the excess of calculations using matrices and, because of this, the use of GPUs would be an appropriate choice.
 
-\subsection{Contribuições Esperadas}
+\subsection{Specific Objectives}
 
-É esperado que após feita a versão paralela do algoritmo tenha-se algum ganho de desempenho se comparada à versão
-sequêncial. Com isso, será possível executar mais rapidamente os mesmos \emph{datasets} e permitirá que pessoas que
-possuam GPU da AMD e da Nvidia possam se beneficiar de um melhor uso de seus recursos computacionais. Um artigo
-já está sendo produzido pela PUC Minas que irá ser diretamente beneficiado por uma versão paralela desse algoritmo.
+Some objectives need to be resolved beforehand in order to achieve the main objective. One first is to modify the original algorithm to support GPU parallelism, such as moving the dataframes to the VRAM as soon as the algorithm starts and keeping the copy of the data synchronized between the host and the device whenever possible. Another point is to check the compatibility of the libraries used for the application to work with the use of CUDA. Finally, add parallelism directives to the code in the functions that support being operated on GPU.
 
-\subsection{Organização da Monografia}
+\subsection{Expected Contributions}
 
-Esta monografia está organizada da seguinte forma: seção 2 apresenta uma revisão da literatura,
-seção 3 apresenta os trabalhos correlatos, seção 4 revisão do funcionamento do algoritmo de
-\emph{``ANT-IS''}, seção 5 metodologia usada e por fim, uma seção de conclusões.
+It is expected that after the parallel version of the algorithm is made, there will be some performance gain compared to the sequential version. With this, it will be possible to execute the same datasets more quickly and will allow people who have AMD and Nvidia GPUs to benefit from better use of their computational resources. An article is already being produced by PUC Minas that will directly benefit from a parallel version of this algorithm.
+
+\subsection{Organization of the Monograph}
+
+This monograph is organized as follows: section 2 presents a literature review, section 3 presents related work, section 4 reviews the operation of the "ANT-IS" algorithm, section 5 describes the methodology used, and finally, a section of conclusions.

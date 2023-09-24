@@ -1,82 +1,68 @@
-\section{Revisão da Literatura}
+\section{Literature Review}
 
-O livro escrito por \citeauthor{BookIA} \cite{BookIA} apresenta todos os conceitos necessários para se iniciar na área de inteligência artificial (IA).
-Modelos de IA são pensados desde os primórdios da computação. Sempre foi almejado uma forma de se construir um algoritmo
-que se auto-modelasse dependendo do problema, para ter a melhor solução possível,
-e que conseguisse aumentar sua própria precisão apenas precisando de uma entrada maior, sem necessidade de modificação
-do código em si.
+The book written by \citeauthor{BookIA} \cite{BookIA} presents all the concepts necessary to start in the field of artificial intelligence (AI).
+AI models have been thought of since the early days of computing. It has always been aspired to build an algorithm
+that would self-model itself depending on the problem, to have the best possible solution,
+and that would be able to increase its own accuracy by simply needing a larger input, without the need to modify
+the code itself.
 
-Como citado por \citeauthor{AntColonyOptimization} \cite{AntColonyOptimization}, algoritmos baseados em colônias de formigas
-e outros insetos, que possuem comportamentos parecidos, começaram a ser pensados ainda nos anos noventa.
-Percebendo detalhes na forma que formigas se organizam ao procurar melhores
-caminhos para alcançar seus objetivos, inspirou vários pesquisadores a projetarem algoritmos que o imitem como forma
-de otimização para a área de inteligência artificial.
+As cited by \citeauthor{AntColonyOptimization} \cite{AntColonyOptimization}, algorithms based on ant colonies
+and other insects with similar behaviors began to be thought of in the 1990s.
+Noticing details in the way ants organize themselves to find better
+paths to achieve their goals, inspired several researchers to design algorithms that imitate it as a way
+of optimization for the field of artificial intelligence.
 
-Programar qualquer inteligência artificial possui o problema de sempre se preocupar com o tamanho da entrada para treinamento.
-Uma IA que sempre precisa de grandes entradas para se ter bons resultados precisa de ter bom uso dos recursos disponíveis na máquina.
-Por conta disso, modelar esse programa aproveitando da computação paralela é fundamental para um bom uso desses recursos.
-A diferença de desempenho entre a versão sequencial para a versão paralela é tão significativo que projetar os algoritmos
-já pensando em torná-los paralelos pode fazer total diferença \cite{SequentialVSParallel}.
+Programming any AI has the problem of always having to worry about the size of the input for training.
+An AI that always needs large inputs to get good results needs to make good use of the resources available on the machine.
+Therefore, modeling this program taking advantage of parallel computing is essential for good use of these resources.
+The performance difference between the sequential version and the parallel version is so significant that designing the algorithms
+already thinking about making them parallel can make a big difference \cite{SequentialVSParallel}.
 
-Como apresentado por \citeauthor{ParallelComputingCUDA}, vários problemas computacionais podem ser otimizados em GPUs.
-O uso de CUDA para programação paralela de quantidades massivas de dados se torna extremamente necessária, uma vez que
-placas de vídeo da Nvidia podem chegar a ser até 250 vezes mais rápida do que uma versão paralela em CPU Intel \cite{ParallelComputingCUDA}.
-Placas de vídeo possuem grande capacidade de calcular grandes quantidades de dados simultaneamente e inteligência artificial
-é uma aplicação que encaixa perfeitamente nesse propósito.
+As presented by \citeauthor{ParallelComputingCUDA}, several computational problems can be optimized on GPUs.
+The use of CUDA for parallel programming of massive amounts of data becomes extremely necessary, since
+Nvidia graphics cards can be up to 250 times faster than a parallel version on Intel CPU \cite{ParallelComputingCUDA}.
+Graphics cards have a great capacity to calculate large amounts of data simultaneously and artificial intelligence
+is an application that fits perfectly for this purpose.
 
-Muitos autores gostam de apontar como algumas linguaguens de programação são mais eficientes que outras
-quando testadas sobre alguns parâmetros.
-No artigo \citetitle{C++vsPython} de \citeauthor{C++vsPython}, mostra-se como a diferença na escolha das ferramentas
-usadas durante a construção de um \emph{software} tem grandes impactos no desempenho final de uma aplicação como
-mostrado na figura \ref{fig:comparisonMemorycppvspython}.
+Many authors like to point out how some programming languages are more efficient than others
+when tested on some parameters.
+In the article \citetitle{C++vsPython} by \citeauthor{C++vsPython}, it is shown how the difference in the choice of tools
+used during the construction of a \emph{software} has a major impact on the final performance of an application as
+shown in Figure \ref{fig:comparisonMemorycppvspython}.
+
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.5\textwidth]{ComparisonofMemoryConsumptionofSearchingAlgorithm.png}
-    \caption[a]{Comparação do uso de memória em um algoritmo de busca\footnotemark.}
+    \caption[a]{Comparison of memory usage in a search algorithm\footnotemark.}
     \label{fig:comparisonMemorycppvspython}
 \end{figure}
 
-\footnotetext{Retirado do artigo: \citetitle{C++vsPython}.}
+\footnotetext{Taken from the article: \citetitle{C++vsPython}.}
 
-O uso de memória é extremamente importante de ser pensado quando se trata de um contexto de treinamento
-de IA. O tempo de execução também é de suma importância de ser calculado, uma vez que teremos sempre
-grandes entradas para trabalhar. Pode-se ver na figura \ref{fig:speedcppvspython} a diferença de performance
-entre ambas as línguas.
+Memory usage is extremely important to consider when it comes to AI training context. Runtime is also of paramount importance to calculate since we will always have large inputs to work with. The difference in performance between both languages can be seen in Figure \ref{fig:speedcppvspython}.
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.5\textwidth]{ComparisonofTimeUtilizationofSearchingAlgorithm.png}
-    \caption[a]{Comparação do tempo de execução de um algoritmo de busca de forma sequencial\footnotemark.}
+    \caption[a]{Comparison of the execution time of a sequentially executed search algorithm\footnotemark.}
     \label{fig:speedcppvspython}
 \end{figure}
 
-\footnotetext{Retirado do artigo: \citetitle{C++vsPython}.}
+\footnotetext{Taken from the article: \citetitle{C++vsPython}.}
 
-É notório que a linguagem de programação Python ficou atrás da linguagem C++ nesses parâmetros medidos.
-A primeira é consideravelmente mais simples de usar e ensinar para novos programadores \cite{C++vsPython}.
-Com isso em mente, o pesquisador \citeauthor{HPC_Python} apresentou em seu artigo \citetitle{HPC_Python},
-como Python se tornou a língua favorita para os professores ensinarem e sua imensa versatilidade na área científica.
-Por conta de sua facilidade de uso, houve grande atenção da comunidade para aumentar o desempenho dessa língua, até
-que fique competitiva com o C++.
+It is noticeable that the Python programming language lags behind the C++ language in these measured parameters. The former is considerably simpler to use and teach to new programmers \cite{C++vsPython}. With this in mind, researcher \citeauthor{HPC_Python} presented in his article \citetitle{HPC_Python} how Python became the favorite language for teachers to teach and its immense versatility in the scientific field. Due to its ease of use, there was a lot of community attention to improving the performance of this language until it became competitive with C++.
 
-Trabalhos foram feitos para aumentar sua eficiência como citado por \citeauthor{JIT}, que em seu trabalho
-para a IBM já em 2007, pensava em como aumentar o desempenho da linguagem de programação Java usando
-\emph{Just-in-Time Compiler}. Esse recurso permite que uma língua seja compilada para \emph{Bytecode}, o que
-seria equivalente a uma lingua de programação intermediária entre o que a máquina consegue entender e o que o
-programador efetivamente escreveu. Isso permitia que um código não fosse completamente compilado para uma arquitetura
-específica de processador, mas no momento de sua execução fosse modificado para o código de montagem de máquina
-mais eficiente que estivesse disponível \cite{JIT}.
+Efforts were made to increase its efficiency, as mentioned by \citeauthor{JIT}, who in his work for IBM as early as 2007, was thinking about how to improve the performance of the Java programming language using a Just-in-Time Compiler. This feature allows a language to be compiled into Bytecode, which is equivalent to an intermediate programming language between what the machine can understand and what the programmer actually wrote. This allowed a code not to be fully compiled for a specific processor architecture but to be modified at the time of execution to the most efficient machine assembly code available \cite{JIT}.
 
-Considerando que Python é uma linguagem interpretada. Unir a ideia do \emph{JIT} que estava sendo empregada a
-vários anos no interpretador de Python poderia gerar bons resultados. O primeiro teste feito por \citeauthor{NumbaLLVMJIT}
-apresentou ótimos resultados como mostrado na figura \ref{fig:numbavspythonsequencial}.
+
+Considering that Python is an interpreted language. Combining the idea of \emph{JIT} that had been used for several years in the Python interpreter could yield good results. The first test conducted by \citeauthor{NumbaLLVMJIT} yielded excellent results, as shown in Figure \ref{fig:numbavspythonsequencial}.
 
 \begin{figure}[!ht]
     \centering
     \begin{tabular}{|c|c|c|}
         \hline
-        Tamanho da Matriz & Numba & C \\
+        Matrix Size & Numba & C \\
         \hline
         64 x 64 & 463x & 453x \\
         \hline
@@ -87,35 +73,30 @@ apresentou ótimos resultados como mostrado na figura \ref{fig:numbavspythonsequ
         512 x 512 & 276x & 268x \\
         \hline
     \end{tabular}
-    \caption[a]{Comparativo entre o tempo de execução do Numba e de um código em C para multiplicação de matrizes\footnotemark[3].}
+    \caption[a]{Comparison between the execution time of Numba and a C code for matrix multiplication\footnotemark[3].}
     \label{fig:numbavspythonsequencial}
 \end{figure}
 
-% Aparece no final da página, não está relacionado com o texto que está sendo escrito em volta
-\footnotetext[3]{Retirado do artigo: \citetitle{NumbaLLVMJIT}.}
+% Appears at the bottom of the page, not related to the text being written around it
+\footnotetext[3]{Taken from the article: \citetitle{NumbaLLVMJIT}.}
 
-Com esses resultados é possível comprovar que com as otimizações certas, pode-se tornar o Python tão performático quanto C++.
-Muitas outras otimizações foram feitas para ter-se ainda mais desempenho como \emph{deferred loop specialization}, reescrita
-das equações das matrizes e o uso de ferramentas para geração de \emph{Bytecode} otimizados com LLVM.
+With these results, it is possible to demonstrate that with the right optimizations, Python can be made as performant as C++. Many other optimizations were made to achieve even better performance, such as deferred loop specialization, rewriting of matrix equations, and the use of tools for generating optimized bytecode with LLVM.
 
-Algoritmos para seleção de melhor instância como o \emph{K-Means} sempre foram referência quando discute-se
-sobre algoritmos de \emph{clusterização}. No artigo escrito por \citeauthor{KmeansAlgorithm} \cite{KmeansAlgorithm},
-mostra-se como há várias implementações extremamente eficientes para esse algoritmo e como a ordem de complexidade
-pode ser elevada, assim como mostrado na figura \ref{fig:complexitykmeans}.
+Algorithms for selecting the best instance, like the \emph{K-Means}, have always been a reference when discussing clustering algorithms. In the article written by \citeauthor{KmeansAlgorithm} \cite{KmeansAlgorithm}, it is shown how there are several extremely efficient implementations for this algorithm and how the complexity order can be elevated, as shown in Figure \ref{fig:complexitykmeans}.
 
 \begin{figure}[!ht]
     \centering
     \begin{tabular}{|c|c|c|c|}
         \hline
-        Complexidade & \emph{K-Means} & \emph{Constrained-K-Means} & \emph{X-Means} \\
+        Complexity & \emph{K-Means} & \emph{Constrained-K-Means} & \emph{X-Means} \\
         \hline
-        Tempo & $O(n^2)$ & $O(kn)$ & $O(n\log k_{max})$ \\
+        Time & $O(n^2)$ & $O(kn)$ & $O(n\log k_{max})$ \\
         \hline
-        Espaço & $O((n+k)d)$ & $O((n+k)d)$ & $O((n+k)d)$ \\
+        Space & $O((n+k)d)$ & $O((n+k)d)$ & $O((n+k)d)$ \\
         \hline
     \end{tabular}
-    \caption[a]{Complexidade de algumas implementações do \emph{K-Means}\footnotemark.}
+    \caption[a]{Complexity of some \emph{K-Means} implementations\footnotemark.}
     \label{fig:complexitykmeans}
 \end{figure}
 
-\footnotetext{Retirado do artigo: \citetitle{KmeansAlgorithm}.}
+\footnotetext{Taken from the article: \citetitle{KmeansAlgorithm}.}
