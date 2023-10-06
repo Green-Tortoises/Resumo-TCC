@@ -30,24 +30,28 @@ In the article \citetitle{C++vsPython} by \citeauthor{C++vsPython}, it is shown 
 used during the construction of a \emph{software} has a major impact on the final performance of an application as
 shown in Figure \ref{fig:comparisonMemorycppvspython}.
 
-
-\begin{figure}[!ht]
+\begin{figure}[htb]
     \centering
-    \includegraphics[width=0.5\textwidth]{ComparisonofMemoryConsumptionofSearchingAlgorithm.png}
-    \caption[a]{Comparison of memory usage in a search algorithm\footnotemark.}
-    \label{fig:comparisonMemorycppvspython}
+    \begin{minipage}{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{ComparisonofMemoryConsumptionofSearchingAlgorithm.png}
+        \caption{Comparison of memory usage in a search algorithm\protect\footnotemark}
+        \label{fig:comparisonMemorycppvspython}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{ComparisonofTimeUtilizationofSearchingAlgorithm.png}
+        \caption{Comparison of the execution time of a sequentially executed search algorithm\protect\footnotemark}
+        \label{fig:speedcppvspython}
+    \end{minipage}
 \end{figure}
+
+
 
 \footnotetext{Taken from the article: \citetitle{C++vsPython}.}
 
 Memory usage is extremely important to consider when it comes to AI training context. Runtime is also of paramount importance to calculate since we will always have large inputs to work with. The difference in performance between both languages can be seen in Figure \ref{fig:speedcppvspython}.
-
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width=0.5\textwidth]{ComparisonofTimeUtilizationofSearchingAlgorithm.png}
-    \caption[a]{Comparison of the execution time of a sequentially executed search algorithm\footnotemark.}
-    \label{fig:speedcppvspython}
-\end{figure}
 
 \footnotetext{Taken from the article: \citetitle{C++vsPython}.}
 
