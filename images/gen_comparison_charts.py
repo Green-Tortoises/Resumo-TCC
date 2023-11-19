@@ -28,7 +28,7 @@ fig.tight_layout()
 
 # Save the bar chart as PNG
 bar_chart_path = 'GPU_vs_CPU_Bar_Chart.png'
-fig.savefig(bar_chart_path)
+fig.savefig(bar_chart_path, dpi=400)
 
 # Line Chart for growth of execution time
 fig2, ax2 = plt.subplots()
@@ -42,7 +42,7 @@ ax2.legend()
 
 # Save the line chart as PNG
 line_chart_path = 'Execution_Time_Growth_Line_Chart.png'
-fig2.savefig(line_chart_path)
+fig2.savefig(line_chart_path, dpi=400)
 
 # Sample data
 datasets = ["Optdigits", "Mushroom", "Body Performance"]
@@ -63,6 +63,6 @@ ax3.legend()
 
 # Save the performance gain chart as PNG
 performance_gain_chart_path = 'Performance_Gain_Line_Chart.png'
-fig3.savefig(performance_gain_chart_path)
+fig3.savefig(performance_gain_chart_path, dpi=400)
 
 performance_gain_chart_path
