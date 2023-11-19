@@ -1,0 +1,44 @@
+\section{Literature}
+
+The book written by \citeauthor{BookIA} \cite{BookIA} presents all the concepts necessary to start in the field of artificial intelligence (AI).
+AI models have been thought of since the early days of computing. It has always been aspired to build an algorithm
+that would self-model itself depending on the problem, to have the best possible solution,
+and that would be able to increase its own accuracy by simply needing a larger input, without the need to modify
+the code itself.
+
+As cited by \citeauthor{AntColonyOptimization} \cite{AntColonyOptimization}, algorithms based on ant colonies
+and other insects with similar behaviors began to be thought of in the 1990s.
+Noticing details in the way ants organize themselves to find better
+paths to achieve their goals, inspired several researchers to design algorithms that imitate it as a way
+of optimization for the field of artificial intelligence.
+
+Programming any AI has the problem of always having to worry about the size of the input for training.
+An AI that always needs large inputs to get good results needs to make good use of the resources available on the machine.
+Therefore, modeling this program taking advantage of parallel computing is essential for good use of these resources.
+The performance difference between the sequential version and the parallel version is so significant that designing the algorithms
+already thinking about making them parallel can make a huge difference \cite{SequentialVSParallel}.
+
+As presented by \citeauthor{ParallelComputingCUDA}, several computational problems can be optimized on GPUs.
+The use of CUDA for parallel programming of massive amounts of data becomes extremely necessary, since
+Nvidia graphics cards can be up to 250 times faster than a parallel version on Intel CPU \cite{ParallelComputingCUDA}.
+Graphics cards have a great capacity to calculate large amounts of data simultaneously and artificial intelligence
+is an application that fits perfectly for this purpose.
+
+Algorithms for selecting the best instance, like the \emph{K-Means}, have always been a reference when discussing clustering algorithms. In the article written by \citeauthor{KmeansAlgorithm} \cite{KmeansAlgorithm}, it is shown how there are several extremely efficient implementations for this algorithm and how the complexity order can be elevated, as shown in Figure \ref{fig:complexitykmeans}.
+
+\begin{figure}[!ht]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        Complexity & \emph{K-Means} & \emph{Constrained-K-Means} & \emph{X-Means} \\
+        \hline
+        Time & $O(n^2)$ & $O(kn)$ & $O(n\log k_{max})$ \\
+        \hline
+        Space & $O((n+k)d)$ & $O((n+k)d)$ & $O((n+k)d)$ \\
+        \hline
+    \end{tabular}
+    \caption[a]{Complexity of some \emph{K-Means} implementations\footnotemark.}
+    \label{fig:complexitykmeans}
+\end{figure}
+
+\footnotetext{Taken from the article: \citetitle{KmeansAlgorithm}.}
