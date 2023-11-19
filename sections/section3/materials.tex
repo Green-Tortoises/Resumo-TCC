@@ -1,6 +1,8 @@
 \section{Materials} \label{Materials}
 
-This work is being developed in the C++ language, and specific libraries have been chosen for the development of this application. The ROCm library\cite{cupyLib} and Numpy\cite{numpyLib} are the most suitable tools for this situation. The first is a Python library designed to support Nvidia GPUs\footnote[1]{There is a version of this library for ROCm to support both Nvidia and AMD GPUs, which will be used in this work.} for large matrix calculations. The second is a library that supports multidimensional arrays (but only on the CPU). By using both together, it is possible to develop a performant application using multidimensional arrays on GPUs.
+This work is being developed in the C++ language, and specific libraries have been chosen for the development of this application. The ROCm library\cite{rocm} and ROCRand\cite{rocrand} are the most suitable tools for this situation.
+The first is a C++ library designed to program applications for AMD and Nvidia GPUs\footnote[1]{Check support for specifics graphics card and CPUs at \href{https://rocm.docs.amd.com/en/latest/release/gpu_os_support.html}{ROCm - GPU and OS Support (Linux)}} for data processing, very suitable for large matrix math.
+The second is a library that supports multidimensional arrays (but only on the CPU). By using both together, it is possible to develop a performant application using multidimensional arrays on GPUs.
 
 Additionally, three public databases have been chosen. All databases that originally contained categorical attributes had their attributes converted into numerical attributes since ACO works only with numerical attributes.
 
@@ -10,13 +12,13 @@ Additionally, three public databases have been chosen. All databases that origin
             \hline
             Database & Number of Instances & Link to Database \\
             \hline
-            Haberman & Number of Instances & Link to Database \\
+            Haberman & 230 & \href{https://raw.githubusercontent.com/LucasSnatiago/Ant-Colony-ROCm/main/database/haberman_treino_normal.csv}{Ant-Colony-ROCm: Haberman} \\
             \hline
-            Optdigits & Number of Instances & Link to Database \\
+            Optdigits & 4215 & \href{https://raw.githubusercontent.com/LucasSnatiago/Ant-Colony-ROCm/main/database/optdigits_treino_normal.csv}{Ant-Colony-ROCm: Optdigits} \\
             \hline
-            Mushroom & Number of Instances & Link to Database \\
+            Mushroom & 6093 & \href{https://raw.githubusercontent.com/LucasSnatiago/Ant-Colony-ROCm/main/database/mushrooms_treino_normal.csv}{Ant-Colony-ROCm: Mushroom} \\
             \hline
-            Body Performance & Number of Instances & Link to Database \\
+            Body Performance & 10044 & \href{https://raw.githubusercontent.com/LucasSnatiago/Ant-Colony-ROCm/main/database/body_performance_treino_normal.csv}{Ant-Colony-ROCm: Body Perfomance} \\
             \hline
         \end{tabular}
         \caption{Databases used for measuring performance.}
