@@ -14,7 +14,6 @@
 \usepackage{pgfplots}
 
 \usepackage[backend=biber,sorting=none]{biblatex}
-%\usepackage[backend=biber]{biblatex}
 \addbibresource{references.bib}
 
 \sloppy
@@ -36,19 +35,26 @@
 \maketitle
 
 % Section 1 - Introduction
-\import{./sections/secao1}{abstract.tex}
-\import{./sections/secao1}{introduction.tex}
+\import{./sections/section1}{abstract.tex}
+\import{./sections/section1}{introduction.tex}
 
 % Section 2 - Related papers
-\import{./sections/secao2}{literature.tex}
-\import{./sections/secao2}{correlated_papers.tex}
-\import{./sections/secao2}{final_thoughts.tex}
+\import{./sections/section2}{literature.tex}
+\import{./sections/section2}{correlated_papers.tex}
+\import{./sections/section2}{final_thoughts.tex}
 
-% Seção 3 da monografia - Métodos que foram adotados no trabalho
-\import{./sections/secao3}{methodology.tex}
-\import{./sections/secao3}{materials.tex}
-\import{./sections/secao3}{metodo.tex}
-\import{./sections/secao3}{resultados_esperados.tex}
+% Section 3 - Materials
+\import{./sections/section3}{materials.tex}
+
+% Section 4 - Methods
+\import{./sections/section4}{methodology.tex}
+\import{./sections/section4}{method.tex}
+
+% Section 4 - Results
+\import{./sections/section5}{results.tex}
+
+% Section 5 - Final Thougths
+\import{./sections/section6}{conclusion.tex}
 
 \printbibliography
 

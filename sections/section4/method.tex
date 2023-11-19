@@ -1,4 +1,4 @@
-\subsection{Method} \label{Method}
+\section{Method} \label{Method}
 
 Using the mentioned tools, it will be necessary to construct a modified ACO algorithm to enable its parallel execution on GPUs. The initial algorithm model considered is to calculate ant movements in batches. This allows for the simultaneous treatment of a large set of ants at once. When these ants finish searching for the best path, they return, and all the data is processed. Then, more ants are sent to calculate the new best path, and this process continues until the entire database is processed.
 

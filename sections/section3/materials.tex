@@ -1,25 +1,28 @@
-\subsection{Materials} \label{Materials}
-
-\import{./sections/secao3}{figures.tex}
-
+\section{Materials} \label{Materials}
 
 This work is being developed in the C++ language, and specific libraries have been chosen for the development of this application. The ROCm library\cite{cupyLib} and Numpy\cite{numpyLib} are the most suitable tools for this situation. The first is a Python library designed to support Nvidia GPUs\footnote[1]{There is a version of this library for ROCm to support both Nvidia and AMD GPUs, which will be used in this work.} for large matrix calculations. The second is a library that supports multidimensional arrays (but only on the CPU). By using both together, it is possible to develop a performant application using multidimensional arrays on GPUs.
 
 Additionally, three public databases have been chosen. All databases that originally contained categorical attributes had their attributes converted into numerical attributes since ACO works only with numerical attributes.
 
-\begin{center}
-    \begin{tabular}{|c|c|c|}
-        \hline
-        Database & Number of Instances & Link to Database \\
-        \hline
-        Banana & 5300 & \href{https://www.kaggle.com/datasets/saranchandar/standard-classification-banana-dataset}{Link to Banana Dataset} \\
-        \hline
-        \emph{Cyber Security} & 1247 & \href{https://www.kaggle.com/datasets/deepcontractor/cyber-security-salaries}{Link to \emph{Cyber Security}} \\
-        \hline
-        \emph{Iris Species} & 150 & \href{https://www.kaggle.com/datasets/uciml/iris}{Link to \emph{Iris Species}} \\
-        \hline
-    \end{tabular}
-\end{center}
+\begin{figure}
+    \begin{center}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            Database & Number of Instances & Link to Database \\
+            \hline
+            Haberman & Number of Instances & Link to Database \\
+            \hline
+            Optdigits & Number of Instances & Link to Database \\
+            \hline
+            Mushroom & Number of Instances & Link to Database \\
+            \hline
+            Body Performance & Number of Instances & Link to Database \\
+            \hline
+        \end{tabular}
+        \caption{Databases used for measuring performance.}
+    \end{center}
+    \label{fig:datasets}
+\end{figure}
 
 These databases were deliberately chosen with significantly different numbers of instances since this algorithm has exponential growth in data processing cost. Starting with small databases for initial testing implies considerably shorter processing times. For each new test, increasing the number of instances significantly raises the processing cost and execution time, which can be used to test the efficiency of the parallel version of the algorithm.
 

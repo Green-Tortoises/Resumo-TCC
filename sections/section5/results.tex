@@ -1,0 +1,40 @@
+\subsection{Results} \label{Results}
+
+The growth of the ACO algorithm being worked on in this thesis is exponential.
+By making it parallel, the equation defining its growth is a much slower curve than the CPU version,
+still growing exponentially but being able to process a larger database much faster.
+This can be shown using these graphs below, containing the number of instances being processed over time.
+
+\begin{figure}[ht]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/GPU_vs_CPU_Bar_Chart.png}
+        \caption{Comparison of Running Time on GPU vs CPU}
+        \label{fig:gpu_vs_cpu}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/Execution_Time_Growth_Line_Chart.png}
+        \caption{Growth of Execution Time for GPU and CPU}
+        \label{fig:execution_time_growth}
+    \end{minipage}
+\end{figure}
+
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.65\textwidth]{images/Performance_Gain_Line_Chart.png}
+    \caption{Performance Gain of GPU over CPU}
+    \label{fig:performance_gain}
+\end{figure}
+
+These are the results found after testing four databases. The time growth in the CPU version is noticiable.
+The Haberman dataset \ref{fig:datasets} is not being displayed in the figure \ref{fig:performance_gain}, because it took approximately $-700\%$
+in perfomance so the graph would be very hard to see the results between the other three datasets.
+
+Haberman dataset is considerably small. We used it just to see how much overhead transfering data from CPU to GPU and back
+could affect the perfomance of all the other three datasets. Looking at the figure \ref{fig:gpu_vs_cpu} it is proved that
+the performance hit is negligible. The GPU version took 0.22 second to run and the CPU version took only
+0.03 second to run, in average. So the time for the \emph{hipMalloc} and \emph{hipMemcpy} to run is less than 0.05 second each,
+considering that is necessary to move all the data from RAM to VRAM and back.
