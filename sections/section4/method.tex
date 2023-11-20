@@ -1,7 +1,80 @@
 \subsection{Method} \label{Method}
 
-Using the mentioned tools, it will be necessary to construct a modified ACO algorithm to enable its parallel execution on GPUs. The initial algorithm model considered is to calculate ant movements in batches. This allows for the simultaneous treatment of a large set of ants at once. When these ants finish searching for the best path, they return, and all the data is processed. Then, more ants are sent to calculate the new best path, and this process continues until the entire database is processed.
+Using the mentioned tools, it will be necessary to construct a modified ACO algorithm to enable its parallel execution on GPUs. The initial algorithm model considered is to calculate ant movements independently. This allows for the simultaneous treatment of a large set of ants at once. When these ants finish searching for the best path, they return, and all the data is processed. Then, more ants are sent to calculate the new best path, and this process continues until the entire database is processed.
 
-It will be necessary to measure the time it takes for each database to process all the paths. With this data, various graphs will be produced containing the number of instances being processed over time. By analyzing these graphs, it will be possible to identify areas where functions can be optimized to produce better parallel versions.
+It will be necessary to measure the time it takes for each database to process all the paths. With this data, various graphs was produced containing the number of instances being processed over time. By analyzing these graphs, it is possible to identify areas where GPU processing are much more optimized than CPU for massive parallel calculus.
 
-Finally, the most optimized metrics that could be achieved will be presented. All gains will be measured and documented in this document. The final algorithm obtained will also be presented so that it can be replicated and tested.
+Initially, there is this first part of the function $ant\_action$ \footnote{Code can be seen here: \cite{santiago_parallel_aco}} :
+
+
+\begin{lstlisting}[language=c++]
+rocrand_state_xorwow state;
+rocrand_init(random_numbers_seed, ant, 0, &state);
+
+int ajk;
+for (int j = 0; j < num_inst; j++) {
+    ajk = rocrand(&state) % 100;
+
+    if (the_colony[ant*num_inst+j] == -1) {
+        if (ajk >= 40)
+            the_colony[ant*num_inst+j] = 1;
+        else
+            the_colony[ant*num_inst+j] = 0;
+    }
+}
+\end{lstlisting}
+
+This part was built to produce a path for the ant walking through all the data available.
+This algorithm by definition uses randomized numbers for choosing if it takes a path or not.
+ROCrand \cite{rocrand} was used to produce pseudo random numbers for all the ants independently.
+Considering that all GPU threads need to get different values for all the different ants. So each ant
+can take a different path to the goal. the next part is going to be the measurements to see if
+this algorithm has good accuracy.
+
+\begin{lstlisting}[language=c++]
+for (int inst_tst = 0; inst_tst < num_inst_test; inst_tst++);
+\end{lstlisting}
+
+The next two function parts below is inside this for above.
+This for runs through all the
+
+\begin{lstlisting}[language=c++]
+// KNN process
+float menor_distance = FLT_MAX;
+float current_class = -1.0f;
+
+for (int inst_select = 0; inst_select < num_inst; inst_select++) {
+    if ((ant*num_inst+inst_select) < num_inst && the_colony[ant*num_inst+inst_select] == 1) {
+        float dist = distance(&tst_matrix[inst_tst*num_attr_tst], &matrix[inst_select*num_attr], num_attr_tst-1);
+        if (dist < menor_distance) {
+            menor_distance = dist;
+            current_class = matrix[inst_select*num_attr+num_attr-1];
+        }
+    }
+}
+if (current_class == tst_matrix[inst_tst*num_attr_tst+num_attr_tst-1]) {
+    matches[num_inst_test*ant + inst_tst] = 1;
+} else {
+    matches[num_inst_test*ant+inst_tst] = 0;
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=c++]
+// KNN of a "perfect" ant
+float menor_distance_conjunto_completo = FLT_MAX;
+float current_class_conjunto_completo = -1.0f;
+
+for (int inst_select = 0; inst_select < num_inst; inst_select++) {
+    float dist_completo = distance(&tst_matrix[inst_tst*num_attr_tst], &matrix[inst_select*num_attr], num_attr_tst-1);
+
+    if (dist_completo < menor_distance_conjunto_completo) {
+        menor_distance_conjunto_completo = dist_completo;
+        current_class_conjunto_completo = matrix[inst_select*num_attr+num_attr-1];
+    }
+}
+if (current_class_conjunto_completo == tst_matrix[inst_tst*num_attr_tst+num_attr_tst-1]) {
+    matches_completo[num_inst_test*ant+inst_tst] = 1;
+} else {
+    matches_completo[num_inst_test*ant+inst_tst] = 0;
+}
+\end{lstlisting}
