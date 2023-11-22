@@ -101,4 +101,19 @@ as coding directly in ROCm. Another big problem is, the code is not written thin
 of the parallelism, so there are too many memory synchronization between threads
 that makes the code much slower.
 
-For this
+To address all the problems cited, the algorithm was designed as:
+
+\begin{enumerate}
+    \item Collect all the necessary data.
+    \item Move all the data from the host to the device.
+    \item Free all the host memory \footnote{The data on the host will be desynchronized from the device, no need to keep a copy on the host.}.
+    \item Process all the data independently:
+    \subitem Each device thread can use its own auxiliar vector.
+    \subitem The colony vector will be the same for every thread, but no thread can access the same vector adresses.
+    \item After one thread finishing its math, wait for all others to finish.
+    \item Move all data from device back to host.
+    \item Calculate how accurate was the best choosen ant.
+    \item Calculate how accurate was the default ant (the one how took all paths).
+    \item Free all host memory.
+    \item Free all device memory.
+\end{enumerate}

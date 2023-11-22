@@ -1,5 +1,6 @@
 \subsection{Important Thoughts}
 
-All of the previously cited papers are confined within the context of using instance selection with \emph{Ant Colony Optimization} in a sequential manner, making it as efficient as possible to be executed by only one \emph{thread}. In this work, some of the application parameters will be modified to allow it to run on multiple GPU \emph{threads}. This should make the algorithm more efficient for all of the uses already cited by the other authors.
+All of the previously cited papers are confined within the context of using instance selection with \emph{Ant Colony Optimization} in CPU, sequential or parallel manner, none of them address the use of GPUs to
+make the algorithm as efficient as possible. In this work, some of the application parameters will be modified to allow it to run on multiple GPU \emph{threads}. This made the algorithm more efficient for all of the uses already cited by the other authors.
 
 \emph{K-Nearest Neighbors} will be used as a comparative unit in this work to measure the gain that \emph{Ant Colony Optimization} is capable of achieving, as well as its accuracy in finding the best path. Taking advantage of all of the optimizations that have already been cited previously and all of the work that has been done to make this parallel code version a really important tool for artificial intelligence researchers. With this, this work aims to advance the previously conducted research to test the effectiveness of an optimized GPU version of this ACO algorithm.

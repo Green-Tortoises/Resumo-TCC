@@ -1,1 +1,20 @@
 \section{Final Thougths}
+
+The most appropriate parallelization technique is ultimately dependent upon the
+nature of the problem being solved. The approach adressed by this paper
+is extremely scalable being able to grow as much as the number of threads available on the GPU.
+However this is not a fully implementation of the Ant Colony Optimization algorithm,
+removing the pheromones it is just a "muted" ant. There is no communication between the ants.
+Considering this fact, this algorithm can be considered an optimized brute-force.
+
+Removing the pheromones, this algorithm removes the data dependency between the ants.
+This reduce the huge overhead added by waiting for the ants to communicate then each GPU
+thread can calculate the best path using randomness independently. This approach made this algorithm
+very scalable, being limited only by the memory available. In the end, after all ants
+being processed, it's just a matter of choosing the best one between all ants in the colony.
+
+The memory management is the biggest scalability issue to be addressed in a future paper. This algorithm
+takes a lot of the device memory, being at least $\Omega({n^{2})}$ in the best scenario.
+This memory use was designed to be that way for better perfomance, but it makes impossible to run big datasets, running out
+of memory really fast. A better proposal is to use less memory even though it can take a little bit of a perfomance hit, but
+letting it doable to run bigger datasets.

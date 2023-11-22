@@ -24,3 +24,9 @@ that this algorithm is following.
 In his paper \citetitle{paralell_aco}, he created an algorithm that place all the ants in different
 cities getting up to three times speed up over the serial version of the code. This version only works
 using CPU threads and it doesn't scale up for dozens of threads.
+
+The last important paper to be presented is \citetitle{openmp_aco}. This versions uses OpenMP as the library
+to run the ACO run in parallel in Silicon Graphics Origin 2000 machine.
+It uses a quadtree to store the values of pheromones after each execution. The major problem of
+this approach is that after each batching of ants loops needing to synchronize the pheromones between all
+ants inside this batch.
