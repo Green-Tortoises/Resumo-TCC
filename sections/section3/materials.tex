@@ -1,6 +1,6 @@
 \section{Materials} \label{Materials}
 
-This work is being developed in the C++ language, and specific libraries have been chosen for the development of this application. The ROCm library\cite{rocm} and ROCRand\cite{rocrand} are the most suitable tools for this situation.
+This work is being developed in the C++ language, and specific libraries have been chosen for the development of this application. The ROCm library\cite{rocm} and ROCrand\cite{rocrand} are the most suitable tools for this situation.
 The first is a C++ library designed to program applications for AMD and Nvidia GPUs\footnote[1]{Check support for specifics graphics card and CPUs at \href{https://rocm.docs.amd.com/en/latest/release/gpu_os_support.html}{ROCm - GPU and OS Support (Linux)}} for data processing, very suitable for large matrix math.
 The second is a library that supports pseudo random numbers generators inside kernel functions. By using both together, it is possible to develop a performant matrices application on GPUs.
 Additionally, four public databases have been chosen. All databases have only numeric attributes since ACO works only with numerical attributes.

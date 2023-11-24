@@ -1,0 +1,13 @@
+229 instances x 4 attributes loaded!
+77 instances x 4 attributes loaded!
+Pointer to the colony on GPU: 0x7fdb56c02000
+Number of instances: 229
+Colony created in VRAM.
+Accuracy of 0.714286 got from ant 28
+-------------
+Accuracy of 0.623377 got from the default ant
+-------------
+Best ant: 28
+
+Size of the database: 229, size of the best ant solution: 153
+Total Execution Time: 0.683059 seconds

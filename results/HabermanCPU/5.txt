@@ -1,0 +1,14 @@
+Matriz teste: 77 instancias x 4 atributos carregada com sucesso!
+Matriz treino: 229 instancias x 4 atributos carregada com sucesso!
+Colonia 229x229 criada com sucesso!
+Formiga0 acuracia:0.615385
+Formiga54 acuracia:0.628205
+Formiga89 acuracia:0.653846
+Formiga104 acuracia:0.679487
+Formiga204 acuracia:0.692308
+Formiga23 acuracia:0.705128
+Formiga221 acuracia:0.717949
+Formiga84 acuracia:0.743590
+Formiga 84 - Acuracia global:0.743590
+Tempo total de execucao: 0.301052 segundos
+149

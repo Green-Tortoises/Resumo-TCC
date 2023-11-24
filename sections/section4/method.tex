@@ -4,7 +4,7 @@ Using the mentioned tools, it will be necessary to construct a modified ACO algo
 
 It will be necessary to measure the time it takes for each database to process all the paths. With this data, various charts was produced containing the number of instances being processed over time. By analyzing these charts, it is possible to identify areas where GPU processing are much more optimized than CPU for massive parallel calculus.
 
-These code snippets below are parts of the most important function $ant\_action$ \footnote{Code can be seen here: \cite{santiago_parallel_aco}} :
+These code snippets below are parts of the most important function $ant\_action$ \footnote{Code can be seen here: \cite{santiagoParallelAco}} :
 
 
 \begin{lstlisting}[language=c++]
@@ -26,7 +26,7 @@ for (int j = 0; j < num_inst; j++) {
 
 This part was built to produce a path for the ant walking through all the data available.
 This algorithm by definition uses randomized numbers for choosing if it takes a path or not.
-ROCrand \cite{rocrand} was used to produce pseudo random numbers for all the ants independently.
+rocRAND \cite{rocrand} was used to produce pseudo random numbers for all the ants independently.
 Considering that all GPU threads need to get different values for all the different ants. So each ant
 can take a different path to the goal. the next part is going to be the measurements to see if
 this algorithm has good accuracy.

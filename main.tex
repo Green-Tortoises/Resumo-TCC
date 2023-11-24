@@ -1,21 +1,24 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 
 \usepackage{sbc-template}
+\usepackage{graphicx,url}
+\usepackage[utf8]{inputenc}
+% \usepackage[brazil]{babel}
+
 \usepackage{import}
 \usepackage{indentfirst}
-\usepackage{csquotes}
+% \usepackage{csquotes}
+\usepackage{sbc-template}
 
-\usepackage{url, hyperref}
+\usepackage{hyperref}
 
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
 
-\usepackage{babel}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.18}
+% \usepackage{babel}
 
-\usepackage[backend=biber,sorting=none]{biblatex}
-\addbibresource{references.bib}
+% \usepackage[backend=biber,sorting=none]{biblatex}
+% \addbibresource{sbc-template.bib}
 
 \usepackage{listings}
 \usepackage{color}
@@ -80,6 +83,7 @@
 % Section 5 - Final Thougths
 \import{./sections/section6}{conclusion.tex}
 
-\printbibliography
+\bibliographystyle{sbc}
+\bibliography{sbc-template}
 
 \end{document}

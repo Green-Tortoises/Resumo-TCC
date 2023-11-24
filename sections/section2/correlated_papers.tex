@@ -1,31 +1,33 @@
-\subsection{Correlated Papers}
+\subsection{Related Work}
 
-As presented by \citeauthor{ACO_New_Algorithm} in \citetitle{ACO_New_Algorithm}, several
+% I'm hardcoding the citations because SBC Template is broken
+
+As presented by [Dorigo et al. 1999] in ``Ant colony optimization: a new meta-heuristic'', several
 new algorithms inspired by the behavior of ant colonies are being used
 to solve discrete optimization problems. Several
-examples of applications are presented in this article \cite{ACO_New_Algorithm}.
+examples of applications are presented in this article.
 
 Years later, some of the authors mentioned earlier came together again and
-wrote a new article called \citetitle{UpdatesInACO}, summarizing all the updates
-and modifications that occurred during this period in the algorithm. \citeauthor{UpdatesInACO} introduces
+wrote a new article called ``Ant colony optimization: Introduction and recent trends'', summarizing all the updates
+and modifications that occurred during this period in the algorithm. [Blum et al. 2005] introduces
 some new problems that have been incorporated into the ACO, such as the clique problem and problems
 related to protein binding that could be solved with a slight variation of this algorithm
 \cite{UpdatesInACO}.
 
-In the work \citetitle{ACO_New_Algorithm_20anos}, the authors \citeauthor{ACO_New_Algorithm_20anos}
+In the work \cite{ACONewAlgorithm20anos}, the authors
 developed a platform designed to teach the ant colony optimization algorithm
-to any new researcher, presenting the latest version of the algorithm \cite{ACO_New_Algorithm_20anos}.
+to any new researcher, presenting the latest version of the algorithm \cite{ACONewAlgorithm20anos}.
 The platform is available through this link: \url{http://www.scholarpedia.org/article/Ant_colony_optimization}.
 Upon accessing it, you will find the algorithm's definition, its formal definition, a metaheuristic
 of the algorithm, and, finally, the applications that are using this method the most and the new trends
 that this algorithm is following.
 
-\Citeauthor*{paralell_aco} showed a different approach to achieve parallelism in the ACO algorithm.
-In his paper \citetitle{paralell_aco}, he created an algorithm that place all the ants in different
+\cite{paralellAco} showed a different approach to achieve parallelism in the ACO algorithm.
+In their paper, he created an algorithm that place all the ants in different
 cities getting up to three times speed up over the serial version of the code. This version only works
 using CPU threads and it doesn't scale up for dozens of threads.
 
-The last important paper to be presented is \citetitle{openmp_aco}. This versions uses OpenMP as the library
+The last important paper to be presented is \cite{openmpAco}. This versions uses OpenMP as the library
 to run the ACO run in parallel in Silicon Graphics Origin 2000 machine.
 It uses a quadtree to store the values of pheromones after each execution. The major problem of
 this approach is that after each batching of ants loops needing to synchronize the pheromones between all

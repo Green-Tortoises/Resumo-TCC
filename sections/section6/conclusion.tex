@@ -1,4 +1,4 @@
-\section{Final Thougths}
+\section{Final Remarks}
 
 The most appropriate parallelization technique is ultimately dependent upon the
 nature of the problem being solved. The approach adressed by this paper
@@ -18,3 +18,9 @@ takes a lot of the device memory, being at least $\Omega({n^{2})}$ in the best s
 This memory use was designed to be that way for better perfomance, but it makes impossible to run big datasets, running out
 of memory really fast. A better proposal is to use less memory even though it can take a little bit of a perfomance hit, but
 letting it doable to run bigger datasets.
+
+We chose ROCm \cite{rocm}, because it is a new framework to write \emph{General Porpouse GPU} code, that
+works for both Nvidia and AMD. However we didn't ported this code to Nvidia yet. A new paper can be
+written starting from using AMD's script to convert \emph{HIP} code to \emph{CUDA}
+code \cite{hipifyamd}. After this, a perfomance test can be used to measure if this script
+generates a fast \emph{CUDA} code.

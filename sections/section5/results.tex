@@ -27,11 +27,11 @@ This can be shown using these charts below, containing the number of instances b
 \end{figure}
 
 These are the results found after testing four databases. The time growth in the CPU version is noticiable.
-The Haberman dataset \ref{fig:datasets} is not being displayed in the figure \ref{fig:performance_gain}, because it took approximately $-700\%$
+The Haberman dataset \ref{fig:datasets} is not being displayed in Figure \ref{fig:performance_gain}, because it took approximately $-700\%$
 in perfomance so the graph would be very hard to see the results between the other three datasets.
 
 Haberman dataset is considerably small. We used it just to see how much overhead transfering data from CPU to GPU and back
-could affect the perfomance of all the other three datasets. Looking at the figure \ref{fig:gpu_vs_cpu} it is proved that
+could affect the perfomance of all the other three datasets. Looking at Figure \ref{fig:gpu_vs_cpu} it is proved that
 the performance hit is negligible. The GPU version took 0.22 second to run and the CPU version took only
 0.03 second to run, in average. So the time for the \emph{hipMalloc} and \emph{hipMemcpy} to run is less than 0.05 second each,
 considering that is necessary to move all the data from RAM to VRAM and back.
