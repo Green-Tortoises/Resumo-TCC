@@ -1,12 +1,18 @@
 \subsection{Method} \label{Method}
 
-Using the mentioned tools, it will be necessary to construct a modified ACO algorithm to enable its parallel execution on GPUs with great perfomance and scalability. The initial algorithm model considered is to calculate ant movements independently. This allows for the simultaneous treatment of a large set of ants at once. When these ants finish searching for the best path, they return, and all the data is processed. Then, more ants are sent to calculate the new best path, and this process continues until the entire database is processed.
+Using the mentioned tools, it will be necessary to construct a modified ACO algorithm to enable its
+parallel execution on GPUs with great perfomance and scalability. The initial algorithm model
+considered is to calculate ant movements independently. This allows for the simultaneous treatment
+of a large set of ants at once. When these ants finish searching for the best path, they return,
+and all the data is processed. Then, more ants are sent to calculate the new best path, and this
+process continues until the entire database is processed.
 
-It will be necessary to measure the time it takes for each database to process all the paths. With this data, various charts was produced containing the number of instances being processed over time. By analyzing these charts, it is possible to identify areas where GPU processing are much more optimized than CPU for massive parallel calculus.
+It will be necessary to measure the time it takes for each database to process all the paths.
+With this data, various charts was produced containing the number of instances being processed
+over time. By analyzing these charts, it is possible to identify areas where GPU
+processing is more optimized than CPU processing for massive parallel calculations.
 
-These code snippets below are parts of the most important function $ant\_action$ \footnote{Code can be seen here: \cite{santiagoParallelAco}} :
-
-
+\begin{figure}[h!]
 \begin{lstlisting}[language=c++]
 rocrand_state_xorwow state;
 rocrand_init(random_numbers_seed, ant, 0, &state);
@@ -18,28 +24,36 @@ for (int j = 0; j < num_inst; j++) {
     if (the_colony[ant*num_inst+j] == -1) {
         if (ajk >= 40)
             the_colony[ant*num_inst+j] = 1;
-        else
+            else
             the_colony[ant*num_inst+j] = 0;
     }
 }
 \end{lstlisting}
+\caption{randomizing each ant path.}
+\label{fig:code1}
+\end{figure}
 
-This part was built to produce a path for the ant walking through all the data available.
-This algorithm by definition uses randomized numbers for choosing if it takes a path or not.
+The code snippets present in Figures: \ref{fig:code2}, \ref{fig:code1}, \ref{fig:code3} and \ref{fig:code4} are parts of the most important function $ant\_action$ \footnote{Code can be seen here: \cite{santiagoParallelAco}}.
+In Figure \ref{fig:code1} a code snippets was built to make all the ants choose a path to go through all the data available.
+This algorithm by definition uses randomized chance for choosing the next path.
 rocRAND \cite{rocrand} was used to produce pseudo random numbers for all the ants independently.
 Considering that all GPU threads need to get different values for all the different ants. So each ant
-can take a different path to the goal. the next part is going to be the measurements to see if
-this algorithm has good accuracy.
+can take a different path to the goal. The last part is a measurements of algorithms accuracy.
 
+\begin{figure}[h!]
 \begin{lstlisting}[language=c++]
 for (int inst_tst = 0; inst_tst < num_inst_test; inst_tst++);
 \end{lstlisting}
+\caption{loop for each ant to select the next path to take.}
+\label{fig:code2}
+\end{figure}
 
-The next two function parts below is inside this \emph{for} above.
-This for runs through all the instances available in the dataset and choose
+The two next code snippets: Figure \ref{fig:code3} and Figure \ref{fig:code4} are inside the \emph{for} in Figure \ref{fig:code2}.
+This \emph{for} runs through all the instances available in the dataset and choose
 a random path to take. The ant with the best accuracy found will return its value
 to be displayed.
 
+\begin{figure}[h!]
 \begin{lstlisting}[language=c++]
 // KNN process
 float menor_distance = FLT_MAX;
@@ -55,15 +69,20 @@ for (int inst_select = 0; inst_select < num_inst; inst_select++) {
     }
 }
 if (current_class == tst_matrix[inst_tst*num_attr_tst+num_attr_tst-1]) {
-    matches[num_inst_test*ant + inst_tst] = 1;
+    matches[num_inst_test*ant+inst_tst] = 1;
 } else {
     matches[num_inst_test*ant+inst_tst] = 0;
 }
 \end{lstlisting}
+\caption{testing distances to check accuracy.}
+\label{fig:code3}
+\end{figure}
 
-This code below is used to check what would be if an ant took all the paths possible. That's important to check
+
+The code shown in Figure \ref{fig:code4} is used to check what would be if an ant took all the paths possible. That's important to check
 if the algorithm accuracy is valid. Tooking all the paths makes the accuracy smaller than the best ant.
 
+\begin{figure}[h!]
 \begin{lstlisting}[language=c++]
 // KNN of a "perfect" ant
 float menor_distance_conjunto_completo = FLT_MAX;
@@ -83,20 +102,32 @@ if (current_class_conjunto_completo == tst_matrix[inst_tst*num_attr_tst+num_attr
     matches_completo[num_inst_test*ant+inst_tst] = 0;
 }
 \end{lstlisting}
+\caption{ant choosing all possible paths.}
+\label{fig:code4}
+\end{figure}
 
-For compiling the code these flags were used:
 
+To compile the code the flags \emph{-O2 -lrocrand -Wall -pedantic} were used \ref{fig:code5}.
+The CPU version used to compare the code is available inside the examples folder and compiled
+using \emph{-O2 -fopt-info-vec-optimized -fopenmp -lm} \ref{fig:code5}. So the optimizion level used
+was the same.
+
+\begin{figure}[h!]
 \begin{lstlisting}
 CPU: gcc -O2 -fopt-info-vec-optimized -fopenmp acopar3otim.c -o acopar3otimCPU -lm
 GPU: hipcc -O2 -lrocrand -Wall -pedantic acopar3otim.cpp -o acopar3otim
 \end{lstlisting}
+\caption{compilation flags used.}
+\label{fig:code5}
+\end{figure}
 
 It's important to notice that the CPU version actually runs in parallel all
 regions that has no data dependency. It uses device map as well, so if the computer
-supports running a loop inside any GPU available it is going to split the work between CPU and GPU.
+supports running a loop inside any coprocessor available it is going to split the work between CPU and this
+secundary device.
 It uses openmp as the multithreading library. Openmp has the advantage of being easy
 to program using it, as simples as adding the correct directives above the code, but
-has the disavantage of not being able to control the data flow inside the GPU as much
+has the disavantage of not being able to control the data flow inside the coprocessor as much
 as coding directly in ROCm. Another big problem is, the code is not written thinking
 of the parallelism, so there are too many memory synchronization between threads
 that makes the code much slower.
@@ -113,7 +144,7 @@ To address all the problems cited, the algorithm was designed as:
     \item After one thread finishing its math, wait for all others to finish.
     \item Move all data from device back to host.
     \item Calculate how accurate was the best choosen ant.
-    \item Calculate how accurate was the default ant (the one how took all paths).
+    \item Calculate how accurate was the default ant (the one that took all paths).
     \item Free all host memory.
     \item Free all device memory.
 \end{enumerate}

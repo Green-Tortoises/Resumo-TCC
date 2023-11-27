@@ -2,21 +2,21 @@
 
 % I'm hardcoding the citations because SBC Template is broken
 
-As presented by [Dorigo et al. 1999] in ``Ant colony optimization: a new meta-heuristic'', several
+As presented by \cite{ACONewAlgorithm} in ``Ant colony optimization: a new meta-heuristic'', several
 new algorithms inspired by the behavior of ant colonies are being used
 to solve discrete optimization problems. Several
-examples of applications are presented in this article.
+examples of applications are presented in that article, one example is
+the travelling salesman problem.
 
 Years later, some of the authors mentioned earlier came together again and
 wrote a new article called ``Ant colony optimization: Introduction and recent trends'', summarizing all the updates
-and modifications that occurred during this period in the algorithm. [Blum et al. 2005] introduces
+and modifications that occurred during this period in the algorithm. \cite{UpdatesInACO} introduces
 some new problems that have been incorporated into the ACO, such as the clique problem and problems
-related to protein binding that could be solved with a slight variation of this algorithm
-\cite{UpdatesInACO}.
+related to protein binding that could be solved with a slight variation of this algorithm.
 
-In the work \cite{ACONewAlgorithm20anos}, the authors
-developed a platform designed to teach the ant colony optimization algorithm
-to any new researcher, presenting the latest version of the algorithm \cite{ACONewAlgorithm20anos}.
+The authors, as detailed in \cite{ACONewAlgorithm20anos},
+created a platform aimed at educating new researchers in the ant colony optimization algorithm.
+This platform features the most recent iteration of the algorithm.
 The platform is available through this link: \url{http://www.scholarpedia.org/article/Ant_colony_optimization}.
 Upon accessing it, you will find the algorithm's definition, its formal definition, a metaheuristic
 of the algorithm, and, finally, the applications that are using this method the most and the new trends
@@ -28,7 +28,8 @@ cities getting up to three times speed up over the serial version of the code. T
 using CPU threads and it doesn't scale up for dozens of threads.
 
 The last important paper to be presented is \cite{openmpAco}. This versions uses OpenMP as the library
-to run the ACO run in parallel in Silicon Graphics Origin 2000 machine.
-It uses a quadtree to store the values of pheromones after each execution. The major problem of
-this approach is that after each batching of ants loops needing to synchronize the pheromones between all
-ants inside this batch.
+to run the ACO in parallel using a Silicon Graphics Origin 2000 machine.
+It uses a quadtree to store the values of pheromones after each execution.
+The major challenge of this approach lies in the requirement to synchronize
+pheromones among all ants after each batch completes its loop. This necessitates pausing the
+execution of all threads during the data synchronization phase for each batch of ants.
