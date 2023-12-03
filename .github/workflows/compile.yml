@@ -9,9 +9,6 @@ jobs:
         with:
           lfs: 'true'
 
-      - name: Install LaTeX packages
-        run: sudo apt-get update && sudo apt-get install texlive-lang-portuguese -y
-
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:

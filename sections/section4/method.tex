@@ -7,7 +7,7 @@ of a large set of ants at once. When these ants finish searching for the best pa
 and all the data is processed. Then, more ants are sent to calculate the new best path, and this
 process continues until the entire database is processed.
 
-It will be necessary to measure the time it takes for each database to process all the paths.
+It will be necessary to measure the time it takes for to process all paths for each database.
 With this data, various charts was produced containing the number of instances being processed
 over time. By analyzing these charts, it is possible to identify areas where GPU
 processing is more optimized than CPU processing for massive parallel calculations.
@@ -108,7 +108,7 @@ if (current_class_conjunto_completo == tst_matrix[inst_tst*num_attr_tst+num_attr
 
 
 To compile the code the flags \emph{-O2 -lrocrand -Wall -pedantic} were used \ref{fig:code5}.
-The CPU version used to compare the code is available inside the examples folder and compiled
+The CPU version used to compare the code is available inside the examples folder \footnote{This folder is available through this link \href{https://github.com/LucasSnatiago/Ant-Colony-ROCm/tree/main/examples}{Examples of Ant Colony ROCm - Github}.} and compiled
 using \emph{-O2 -fopt-info-vec-optimized -fopenmp -lm} \ref{fig:code5}. So the optimizion level used
 was the same.
 
@@ -132,8 +132,7 @@ as coding directly in ROCm. Another big problem is, the code is not written thin
 of the parallelism, so there are too many memory synchronization between threads
 that makes the code much slower.
 
-To address all the problems cited, the algorithm was designed as:
-
+The original algorithm, developed by a fellow student at PUC Minas, is accessible via the following link: \footnote{See \href{https://github.com/LucasSnatiago/Ant-Colony-ROCm/blob/main/examples/acopar3otim.c}{acopar3otim.c - Github} for the algorithm details.}. This particular version of the algorithm is parallelized and operates without the use of pheromones. A scholarly article is currently in preparation to highlight the advantages of this version compared to its sequential counterpart that utilizes pheromones. To ensure consistency and integrity of the original design, the algorithm itself was not altered. Instead, only its computational process was adapted for execution on the GPU, a modification implemented as follows:
 \begin{enumerate}
     \item Collect all the necessary data.
     \item Move all the data from the host to the device.
@@ -141,7 +140,7 @@ To address all the problems cited, the algorithm was designed as:
     \item Process all the data independently:
     \subitem Each device thread can use its own auxiliar vector.
     \subitem The colony vector will be the same for every thread, but no thread can access the same vector adresses.
-    \item After one thread finishing its math, wait for all others to finish.
+    \item After one thread finishing its computation, wait for all others to finish.
     \item Move all data from device back to host.
     \item Calculate how accurate was the best choosen ant.
     \item Calculate how accurate was the default ant (the one that took all paths).
