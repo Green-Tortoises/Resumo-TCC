@@ -10,23 +10,25 @@ were create using the average value of five executions of each dataset in all te
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.65\textwidth]{images/GPU_vs_CPU_Bar_Chart.png}
-    \caption{Comparison of Running Time on GPU vs CPU}
+    \caption{Comparative Analysis of Execution Times: GPU versus CPU.}
     \label{fig:gpu_vs_cpu}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.65\textwidth]{images/Execution_Time_Growth_Line_Chart.png}
-    \caption{Growth of Execution Time for GPU and CPU}
+    \caption{Comparative Analysis of Growth of Execution Time: GPU and CPU.}
     \label{fig:execution_time_growth}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.65\textwidth]{images/Performance_Gain_Line_Chart.png}
-    \caption{Performance Gain of GPU over CPU}
+    \caption{Comparative Analysis of Performance Gain: GPU over CPU.}
     \label{fig:performance_gain}
 \end{figure}
+
+Figure \ref{fig:gpu_vs_cpu} presents a bar chart that illustrates performance differences, with datasets arranged in ascending order of size from left to right. The execution time for the GPU version does not increase as rapidly as that of the CPU version, highlighting the efficiency of GPU processing. Additionally, Figure \ref{fig:execution_time_growth}, a line chart, provides a more intuitive visualization of this phenomenon, making it easier to observe the accelerated growth in execution time associated with the CPU across various dataset sizes. Furthermore, the final Figure \ref{fig:performance_gain} displays the performance gain in percentage, quantifying the enhanced efficiency of GPU execution over the CPU version.
 
 The time growth in the CPU version is noticiable.
 The Haberman dataset is not being displayed in Figure \ref{fig:performance_gain}, because it took approximately $-700\%$
