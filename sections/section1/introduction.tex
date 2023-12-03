@@ -1,8 +1,22 @@
 \section{Introduction}
 
-Algorithms for selecting optimal instances are well-established in the field of computing, such as \emph{k-means} and \emph{Support Vector Machine} (SVM). They play a crucial role in identifying similar elements within a larger set. This paper discusses a parallel algorithm inspired by the \emph{``Instance Selection with Ant Colony Optimization''} (ACO) algorithm, demonstrating greater efficiency in instance selection compared to both k-means and SVM.
+Instance selection algorithms are pivotal in machine learning applications, including techniques like \emph{K-Means} clustering and \emph{Support Vector Machines} (SVMs). These algorithms are essential for identifying and grouping similar elements within extensive datasets. This paper presents a parallel algorithm modeled after the \emph{``Instance Selection with Ant Colony Optimization''} (ACO) approach, showcasing enhanced efficiency in selecting instances.
 
-The ACO algorithm is based on the idea of an ant colony that separates in search of the best possible path to a certain goal, leaving pheromones on the path so the next ant can be more likely to choose this one. This algorithm is designed to choose random paths until it finds a destination, in the end the best path out of all displaced by the ants will be returned. There is no guarantee that the optimal result will be found. Each execution of the algorithm generates different returns, due to its randomness. Its computational cost is higher than linear. As a result, for each new ant, the algorithm takes a significantly larger amount of processing than the previous one.
+ACO is an optimization algorithm inspired by the foraging behavior of ant colonies and is a part of swarm intelligence, a subset of artificial intelligence. In nature, ants find the shortest paths from their colony to food sources by laying down pheromones and following trails with higher pheromone concentrations. This bio-inspired algorithm simulates such behavior.
+
+The ACO algorithm involves a number of artificial ants searching for quality solutions to a problem, each moving through the parameter space representing possible solutions. These ants communicate indirectly by modifying the environment (laying down a pheromone trail), which influences the probability of other ants following the same path. Over time, beneficial paths accumulate more pheromones and therefore have a higher probability of being chosen, allowing the collective of ants to find optimal or near-optimal solutions.
+
+ACO has been effectively applied to a variety of combinatorial optimization problems, such as the traveling salesman problem, routing in telecommunication networks, and scheduling. Its main strengths are the ability to adapt to changes in real-time and to find optimal paths in complex search spaces.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.65\textwidth]{simple_ant.png}
+    \caption{A basic visual illustration of the Ant Colony Optimization (ACO) algorithm.}
+    \label{fig:simpleant}
+\end{figure}
+
+Looking at Figure \ref{fig:simpleant}, it is possible to see how ants behave. First, ants walk through
+the data randomly, depositing pheromones. Subsequently, the routes where ants efficiently locate the object become more pheromone-rich compared to lesser-traveled paths. Ultimately, this leads to a significant portion of the colony converging on the most pheromone-dense route.
 
 An algorithm with good results and low computational cost is of paramount importance. Greater efficiency and lower resource use make an algorithm a good choice for a larger number of use cases. So, would it be possible to make an instance selection algorithm parallel to make better use of the available computational resources?
 
@@ -11,10 +25,6 @@ The initial idea proposed is to make this AI more efficient. With the correct di
 Therefore, the primary aim of this monograph is to develop and assess a parallel version of the \emph{``Instance Selection with Ant Colony Optimization''} algorithm, utilizing ROCm. This adaptation will involve the removal of pheromone trails to eliminate data dependencies among the ants.
 This algorithm has large parallelizable regions, due to the excess of calculations using matrices and, because of this, the use of GPUs is an appropriate choice.
 
-Some objectives need to be resolved beforehand in order to achieve the main objective. One first is to modify the original algorithm to support GPU parallelism, such as moving the dataframes to the VRAM as soon as the algorithm starts and keeping the copy of the data synchronized between the host and the device only after all the calculations are done.
-As said before, a important change to the original algorithm was made. The ant pheromones was removed making all ants completely independent.
-Another point is to check the compatibility of the libraries used for the application to work with the use of ROCm. Finally, modify sections of the code within functions that are suitable for GPU execution.
-
-Significant enhancements are evident in this version of the code. These performance gains are a direct result of more efficient utilization of the available computational resources. An article currently in development at PUC Minas will greatly benefit from the parallel version of this algorithm.
+Significant enhancements are evident in this version of the code. These performance gains are a direct result of more efficient utilization of the available computational resources. The results start from dividing the time in half up to a tenth of the original’s code time. An article currently in development at PUC Minas will greatly benefit from the parallel version of this algorithm.
 
 This monograph is organized as follows: Section 2 presents a literature review and related works, Section 3 show all the materials used, Section 4 reviews the operation of the ``ANT-IS" algorithm, Section 5 describes the methodology used, and finally, a Section of conclusions.
