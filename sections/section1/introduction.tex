@@ -22,9 +22,9 @@ An algorithm with good results and low computational cost is of paramount import
 
 The initial idea proposed is to make this AI more efficient. With the correct directives, it is possible that a considerable gain in performance will be seen. The algorithm has many regions with large matrix calculations that can be accelerated, as well as operations that can be optimized for GPU-efficient computing platforms, such as ROCm \cite{rocm}.
 
-Therefore, the primary aim of this monograph is to develop and assess a parallel version of the \emph{``Instance Selection with Ant Colony Optimization''} algorithm, utilizing ROCm. This adaptation will involve the removal of pheromone trails to eliminate data dependencies among the ants.
+Therefore, the primary aim of this paper is to develop and assess a parallel version of the \emph{``Instance Selection with Ant Colony Optimization''} algorithm, utilizing ROCm. This adaptation will involve the removal of pheromone trails to eliminate data dependencies among the ants.
 This algorithm has large parallelizable regions, due to the excess of calculations using matrices and, because of this, the use of GPUs is an appropriate choice.
 
 Significant enhancements are evident in this version of the code. These performance gains are a direct result of more efficient utilization of the available computational resources. The results start from dividing the time in half up to a tenth of the original’s code time. An article currently in development at PUC Minas will greatly benefit from the parallel version of this algorithm.
 
-This monograph is organized as follows: Section 2 presents a literature review and related works, Section 3 show all the materials used, Section 4 reviews the operation of the ``ANT-IS" algorithm, Section 5 describes the methodology used, and finally, a Section of conclusions.
+This paper is organized as follows: Section 2 presents a literature review and related works, Section 3 show all the materials used, Section 4 reviews the operation of the ``ANT-IS" algorithm, Section 5 describes the methodology used, and finally, a Section of conclusions.

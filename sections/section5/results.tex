@@ -3,7 +3,7 @@
 The growth of the ACO algorithm being worked on in this thesis is exponential.
 By making it parallel, the equation defining its growth is a much slower curve than the CPU version,
 still growing exponentially but being able to process a larger database much faster.
-This can be shown on these charts: \ref{fig:gpu_vs_cpu}, \ref{fig:execution_time_growth} and
+This can be shown on these charts \ref{fig:gpu_vs_cpu}, \ref{fig:execution_time_growth} and
 \ref{fig:performance_gain}, containing the number of instances being processed over time. All these charts
 were create using the average value of five executions of each dataset in all tested scenarios.
 
@@ -31,10 +31,4 @@ were create using the average value of five executions of each dataset in all te
 Figure \ref{fig:gpu_vs_cpu} presents a bar chart that illustrates performance differences, with datasets arranged in ascending order of size from left to right. The execution time for the GPU version does not increase as rapidly as that of the CPU version, highlighting the efficiency of GPU processing. Additionally, Figure \ref{fig:execution_time_growth}, a line chart, provides a more intuitive visualization of this phenomenon, making it easier to observe the accelerated growth in execution time associated with the CPU across various dataset sizes. Furthermore, the final Figure \ref{fig:performance_gain} displays the performance gain in percentage, quantifying the enhanced efficiency of GPU execution over the CPU version.
 
 The time growth in the CPU version is noticiable.
-The Haberman dataset is not being displayed in Figure \ref{fig:performance_gain}, because it took approximately $-700\%$
-in perfomance so the graph would be very hard to see the results compared to the other three datasets.
-Haberman dataset is considerably small, we used it just to see how much overhead transfering data from CPU to GPU and back
-could affect the perfomance of all the other three datasets. Looking at Figure \ref{fig:gpu_vs_cpu} it is proven that
-the performance hit is negligible. The GPU version took 0.22 second to run and the CPU version took only
-0.03 second to run, in average. So the time for the \emph{hipMalloc} and \emph{hipMemcpy} to run is less than 0.05 second each,
-considering that is necessary to move all the data from RAM to VRAM and back.
+The Haberman dataset is omitted from Figure \ref{fig:performance_gain} due to its significantly reduced performance, approximately $-700\%$, making it challenging to compare its results visually with the other three datasets. Despite its smaller size, the Haberman dataset was included primarily to evaluate the impact of data transfer between the CPU and GPU on overall performance. As demonstrated in Figure \ref{fig:gpu_vs_cpu}, the performance decrease is minimal. The GPU version took an average of 0.22 seconds, while the CPU version completed in just 0.03 seconds. Therefore, the time required for both \emph{hipMalloc} and \emph{hipMemcpy} operations, essential for transferring data between RAM and VRAM, is under 0.05 seconds each.
